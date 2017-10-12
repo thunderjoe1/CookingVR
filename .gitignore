@@ -1,9 +1,9 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/Assets/AssetStoreTools*
+/CookingVR/[Ll]ibrary/
+/CookingVR/[Tt]emp/
+/CookingVR/[Oo]bj/
+/CookingVR/[Bb]uild/
+/CookingVR/[Bb]uilds/
+/CookingVR/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 /.vs/
