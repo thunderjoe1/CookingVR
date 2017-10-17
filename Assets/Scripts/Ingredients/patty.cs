@@ -13,7 +13,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class patty : MonoBehaviour
+public class patty : ingrediantClass
 {
 
+    void Start ()
+    {
+        cooked = new Structs.cooked(0,50,100);
+        print(cooked.value);
+        print(cooked.min);
+        print(cooked.max);
+    }
 }

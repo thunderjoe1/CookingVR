@@ -15,10 +15,11 @@ using UnityEngine;
 
 public class ingrediantClass : MonoBehaviour, IHeatable
 {
-    Structs.cooked cooked = new Structs.cooked();
+    protected Structs.cooked cooked;
 
     public void Heat(float heatPerSecond)
     {
-        cooked.value += heatPerSecond;
+        cooked.value += heatPerSecond * Time.deltaTime;
+        print(cooked.value);
     }
 }
