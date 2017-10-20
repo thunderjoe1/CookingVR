@@ -1,8 +1,8 @@
 ﻿/*******************************************************************************************************
-Class Name:     patty
+Class Name:     bottomBun
 Author’s Name:  Thunder Clonch
-Created Date:   10/12/2017
-Description:    The class for hamburger patties.
+Created Date:   10/19/2017
+Description:    The class for the bottom bun of a hamburger.
 
 Last Edited:  
 Last Editor: 
@@ -13,12 +13,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class patty : ingredientClass
+public class bottomBun : ingredientClass
 {
-
-    void Start ()
+	void Start ()
     {
-        posCor = new Vector3(0, 0.01f, 0);
-        cooked = new Structs.cooked(0,50,100);
+        posCor = new Vector3(0,0.005f,0);
+        cooked = new Structs.cooked(0, 10, 20);
     }
 }

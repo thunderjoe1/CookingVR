@@ -12,7 +12,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour {
+public class Spawner : MonoBehaviour
+{
 
 	public GameObject ingredientPrefab;						//Reference to the prefab of whatever ingredient the spawner is going to spawn
 
