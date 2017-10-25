@@ -15,9 +15,9 @@ using UnityEngine;
 
 public class bottomBun : ingredientClass
 {
-	void Start ()
+	void Awake ()
     {
-        posCor = new Vector3(0,0.005f,0);
+        posCor = new Vector3(0,0.006f,0);
         cooked = new Structs.cooked(0, 10, 20);
     }
 }

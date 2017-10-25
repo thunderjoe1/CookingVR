@@ -17,7 +17,7 @@ public class cheese : ingredientClass
 {
     void Start ()
     {
-        posCor = new Vector3(0, 0.005f, 0);
+        posCor = new Vector3(0, 0.001f, 0);
         cooked = new Structs.cooked(0, 5, 10);
     }
 }

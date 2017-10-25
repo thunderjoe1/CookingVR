@@ -18,7 +18,7 @@ public class patty : ingredientClass
 
     void Start ()
     {
-        posCor = new Vector3(0, 0.01f, 0);
+        posCor = new Vector3(0, 0.009f, 0);
         cooked = new Structs.cooked(0,50,100);
     }
 }
