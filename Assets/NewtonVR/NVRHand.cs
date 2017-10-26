@@ -544,6 +544,12 @@ namespace NewtonVR
 
         public virtual void BeginInteraction(NVRInteractable interactable)
         {
+			if (interactable.gameObject.GetComponent<Spawner> ()) {
+				Debug.Log ("This is working");
+				GameObject g = Instantiate (interactable.gameObject.GetComponent<Spawner> ().ingredientPrefab, transform.position, transform.rotation);
+				CurrentlyInteracting = g.GetComponent<NVRInteractableItem> ();
+				CurrentlyInteracting.BeginInteraction(this);
+			}
             if (interactable.CanAttach == true)
             {
                 if (interactable.AttachedHand != null)
