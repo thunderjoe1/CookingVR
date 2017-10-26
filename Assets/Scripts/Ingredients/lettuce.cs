@@ -13,12 +13,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class patty : ingredientClass
+public class lettuce : ingredientClass
 {
-
-    void Start ()
+    void Start()
     {
-        posCor = new Vector3(0, 0.009f, 0);
-        cooked = new Structs.cooked(0,50,100);
+        posCor = new Vector3(0, 0.0003f, 0);
+        cooked = new Structs.cooked(0, 10, 20);
     }
 }

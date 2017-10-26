@@ -13,7 +13,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cheese : MonoBehaviour
-{ 
-
+public class cheese : ingredientClass
+{
+    void Start ()
+    {
+        posCor = new Vector3(0, 0.001f, 0);
+        cooked = new Structs.cooked(0, 5, 10);
+    }
 }
