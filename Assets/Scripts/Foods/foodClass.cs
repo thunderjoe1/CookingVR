@@ -45,8 +45,9 @@ public class foodClass : MonoBehaviour
         i.GetComponent<Rigidbody>().isKinematic = true;
         i.GetComponent<BoxCollider>().isTrigger = true;
         i.GetComponent<NewtonVR.NVRInteractableItem>().enabled = false;
-        GetComponent<BoxCollider>().size = new Vector3(0.12f, foodThickness.y, 0.12f) + ingredients[0].posCor;
-        GetComponent<BoxCollider>().center = foodThickness - ingredients[0].posCor;
+        GetComponent<BoxCollider>().size = new Vector3(0.12f, foodThickness.y, 0.12f) + ingredients[0].posCor + ingredients[ingredients.Count - 1].posCor;
+        print(ingredients.Count);
+        GetComponent<BoxCollider>().center = foodThickness/2;
     }
 
     //When this object collides with another, check if the other has an ingredientClass component. If so, add it to the food item.

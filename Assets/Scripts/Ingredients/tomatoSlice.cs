@@ -18,7 +18,7 @@ public class tomatoSlice : ingredientClass
 {
     void Start()
     {
-        posCor = new Vector3(0, 0.00033f, 0);
+        posCor = new Vector3(0, 0.0025f, 0);
         cooked = new Structs.cooked(0, 2, 2);
     }
 }

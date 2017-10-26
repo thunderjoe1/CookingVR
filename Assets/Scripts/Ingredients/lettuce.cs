@@ -17,7 +17,7 @@ public class lettuce : ingredientClass
 {
     void Start()
     {
-        posCor = new Vector3(0, 0.0002f, 0);
+        posCor = new Vector3(0, 0.0003f, 0);
         cooked = new Structs.cooked(0, 10, 20);
     }
 }

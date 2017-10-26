@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 434378718}
   - component: {fileID: 434378717}
   - component: {fileID: 434378716}
+  - component: {fileID: 434378720}
   m_Layer: 0
   m_Name: Lettuce Leaf
   m_TagString: Untagged
@@ -623,6 +624,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434378720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 434378715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bd68f09c7504341a71da24ca384474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &534006447 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: bef121c633f4aa148a1cf440fdcc3a57, type: 3}
