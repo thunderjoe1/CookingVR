@@ -11,7 +11,6 @@ public class StoveTop : MonoBehaviour
         {
             if (mb is IHeatable)
             {
-                print("Works.");
                 IHeatable heatable = (IHeatable)mb;
                 heatable.Heat(1);
             }
