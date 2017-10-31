@@ -15,5 +15,26 @@ using UnityEngine;
 
 public class burgerClass : foodClass
 {
+    void Start()
+    {
+        ingredients.Add(transform.GetChild(0).GetComponent<ingredientClass>());
+        foodThickness += transform.GetChild(0).GetComponent<ingredientClass>().posCor;
+    }
 
+    override public void addIngredient(GameObject i)
+    {
+        ingredientClass c = i.GetComponent<ingredientClass>();      //The ingredientClass attached to i.
+        ingredients.Add(c);
+        i.transform.parent = this.transform;
+        foodThickness += c.posCor;
+        i.transform.localPosition = foodThickness;
+        i.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        foodThickness += c.posCor;
+        i.GetComponent<Rigidbody>().isKinematic = true;
+        i.GetComponent<BoxCollider>().isTrigger = true;
+        i.GetComponent<NewtonVR.NVRInteractableItem>().enabled = false;
+        GetComponent<BoxCollider>().size = new Vector3(0.12f, foodThickness.y, 0.12f) + ingredients[0].posCor + ingredients[ingredients.Count - 1].posCor;
+        print(ingredients.Count);
+        GetComponent<BoxCollider>().center = foodThickness / 2;
+    }
 }
