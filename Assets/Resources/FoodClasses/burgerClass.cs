@@ -34,7 +34,6 @@ public class burgerClass : foodClass
         i.GetComponent<BoxCollider>().isTrigger = true;
         i.GetComponent<NewtonVR.NVRInteractableItem>().enabled = false;
         GetComponent<BoxCollider>().size = new Vector3(0.12f, foodThickness.y, 0.12f) + ingredients[0].posCor + ingredients[ingredients.Count - 1].posCor;
-        print(ingredients.Count);
         GetComponent<BoxCollider>().center = foodThickness / 2;
     }
 }
