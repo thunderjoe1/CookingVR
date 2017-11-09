@@ -18,7 +18,6 @@ public class ProgressBar : MonoBehaviour {
 
 	public GameObject progressBarSprite { get; protected set; }
 	public GameObject progressBarMinSprite { get; protected set; }
-	public GameObject progressBarMaxSprite { get; protected set; }
 
 	Image progressSprite;
 
@@ -56,7 +55,6 @@ public class ProgressBar : MonoBehaviour {
 	void ProgressBarIntialize () {
 		progressBarSprite = transform.GetChild (0).GetChild (0).gameObject;
 		progressBarMinSprite = transform.GetChild (0).GetChild (1).gameObject;
-		progressBarMaxSprite = transform.GetChild (0).GetChild (2).gameObject;
 		myCanvas = GetComponent<Canvas> ();
 		progressSprite = progressBarSprite.GetComponent<Image> ();
 		myIngredientParent = transform.parent.gameObject.GetComponent<ingredientClass> ();
@@ -67,7 +65,6 @@ public class ProgressBar : MonoBehaviour {
 	}
 
 	void SetMinAndMaxBars () {
-		progressBarMinSprite.GetComponent<RectTransform> ().anchoredPosition = Vector3.Lerp (minPosition, maxPosition, minimumCookedValue);
-		progressBarMaxSprite.GetComponent<RectTransform>().anchoredPosition = Vector3.Lerp (minPosition, maxPosition, maximumCookedValue);
+		progressBarMinSprite.GetComponent<RectTransform> ().anchoredPosition = Vector3.Lerp (minPosition, maxPosition, minimumCookedValue/maximumCookedValue);
 	}
 }
