@@ -4,9 +4,9 @@ Author’s Name:  Thunder Clonch
 Created Date:   10/12/2017
 Description:    Script which stores our structs.
 
-Last Edited:  
+Last Edited: 
 Last Editor: 
-Last Edit Description:
+Last Edit Description: 
 
 *******************************************************************************************************/
 using System.Collections;
@@ -28,7 +28,7 @@ public class Structs : MonoBehaviour
         Description and Use:
             Used to initialize the cooked settings of an ingredient.
         ***********************************/
-        public cooked(float v, float i, float a)
+		public cooked(float v, float i, float a)
         {
             this.value = v;
             this.min = i;
