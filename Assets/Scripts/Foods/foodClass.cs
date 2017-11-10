@@ -30,6 +30,18 @@ public class foodClass : MonoBehaviour
     {
     }
 
+    /*********************************
+    Function Name: addIngredientClass
+    Functions Inputs: i ingredientClass of the ingredient being added.
+    Function Returns: Nothing.
+    Description and Use: Use to add an ingedients to a food without needing it to be attached to a GameObject.
+    For specific uses if you don't know if you need to use this, you probably don't.
+    ***********************************/
+    public void addIngredientClass(ingredientClass i)
+    {
+        ingredients.Add(i);
+    }
+
     //When this object collides with another, check if the other has an ingredientClass component. If so, add it to the food item.
     void OnCollisionEnter(Collision col)
     {

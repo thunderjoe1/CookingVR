@@ -15,7 +15,7 @@ using UnityEngine;
 
 public class StartLevel : MonoBehaviour
 {
-    public static List<MonoBehaviour> availibleFoods { get; protected set; } //The foods that are availible to be ordered.
+    public static List<int> availibleFoods { get; protected set; } //The foods that are availible to be ordered.
 
     /*********************************
     Function Name: clearFoods
@@ -26,7 +26,7 @@ public class StartLevel : MonoBehaviour
     ***********************************/
     public static void clearFoods()
     {
-        availibleFoods = new List<MonoBehaviour>();
+        availibleFoods = new List<int>();
     }
 
     /*********************************
@@ -38,9 +38,7 @@ public class StartLevel : MonoBehaviour
     ***********************************/
     public static void addFood(int n)
     {
-        GameObject t = MasterFoodList.foodSpawner(n, new Vector3(100, 100, 100), new Vector3(0, 0, 0));
-        availibleFoods.Add(t.GetComponent<foodClass>());
-        Destroy(t);
+        availibleFoods.Add(n);
     }
 
     void Awake()
@@ -50,9 +48,9 @@ public class StartLevel : MonoBehaviour
 
     public static void printMenu()
     {
-        foreach (foodClass fc in availibleFoods)
+        foreach (int f in availibleFoods)
         {
-            print(fc);
+            print(MasterFoodList.foodNamer(f));
         }
     }
 }

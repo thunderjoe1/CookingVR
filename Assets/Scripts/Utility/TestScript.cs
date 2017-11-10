@@ -15,15 +15,14 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
+    
+
     void Start()
     {
-        StartLevel.addFood(Random.Range(0, 2));
-        StartLevel.addFood(Random.Range(0, 2));
-        StartLevel.addFood(Random.Range(0, 2));
-        StartLevel.addFood(Random.Range(0, 2));
-        StartLevel.addFood(Random.Range(0, 2));
+        StartLevel.addFood(0);
+        StartLevel.addFood(1);
         StartLevel.printMenu();
-        StartLevel.clearFoods();
-        StartLevel.printMenu();
+
+        OrderClass.Instance.orderFood();
     }
 }

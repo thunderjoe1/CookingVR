@@ -15,10 +15,10 @@ using UnityEngine;
 
 public class burgerClass : foodClass
 {
-    void Start()
+    void Awake()
     {
-        ingredients.Add(transform.GetChild(0).GetComponent<ingredientClass>());
-        foodThickness += transform.GetChild(0).GetComponent<ingredientClass>().posCor;
+        ingredients.Add(transform.GetChild(0).GetComponent<bottomBun>());
+        foodThickness += transform.GetChild(0).GetComponent<bottomBun>().posCor;
     }
 
     override public void addIngredient(GameObject i)
