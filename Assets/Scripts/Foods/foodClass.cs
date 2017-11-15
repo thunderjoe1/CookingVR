@@ -42,6 +42,18 @@ public class foodClass : MonoBehaviour
         ingredients.Add(i);
     }
 
+    /*********************************
+   Function Name: getIngredients
+   Functions Inputs: nothing
+   Function Returns: The list of ingredientClasses that are a part of this food.
+   Description and Use: To access the ingredients list from outside this class.
+
+   ***********************************/
+    public List<ingredientClass> getIngredients()
+    {
+        return (ingredients);
+    }
+
     //When this object collides with another, check if the other has an ingredientClass component. If so, add it to the food item.
     void OnCollisionEnter(Collision col)
     {

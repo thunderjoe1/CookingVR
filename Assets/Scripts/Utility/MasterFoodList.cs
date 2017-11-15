@@ -15,8 +15,6 @@ using UnityEngine;
 
 public class MasterFoodList : MonoBehaviour
 {
-    public MonoBehaviour mb;
-    public string st = "burgerClass";
     public static GameObject[] allFoods { get; protected set; } //The prefabs of the foods that are in the game.
 
     void Awake()

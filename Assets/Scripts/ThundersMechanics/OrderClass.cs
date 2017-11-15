@@ -121,4 +121,71 @@ public class OrderClass : MonoBehaviour
                 break;
         }
     }
+
+    /*********************************
+    Function Name: compareFoods
+    Functions Inputs: o foodClass the order the customer wants.
+                      i foodClass the player is inputing to be scored.
+    Function Returns: The score given to the player.
+    Description and Use: Compares i to o and returns a score based on how close the player is to correct.
+
+    ***********************************/
+    public float compareFoods (foodClass o, foodClass i)
+    {
+        return (2);
+        if(o.GetType() == i.GetType())
+        {
+            List<ingredientClass> tempo = o.getIngredients();       //
+            List<ingredientClass> tempi = i.getIngredients();       //
+            if(o.name == "burgerClass")
+            {
+                return (compareBurger(tempo,tempi));
+            }else if(o.name == "steakClass")
+            {
+
+            }else
+            {
+                print("What did you even give me?");
+                return (0);
+            }
+        }
+        else
+        {
+            print ("You gave me the wrong food. What the fuck?");
+            return (0);
+        }
+    }
+
+    /*********************************
+   Function Name: compareBurger
+   Functions Inputs: tempo list of ingredientClasses that the customer is requesting.
+                     tempi list of ingredientClasses that the player is giving the customer.
+   Function Returns: The score given to the player.
+   Description and Use: Compares tempi to tempo and returns a score based on how close the player is to correct.
+
+   ***********************************/
+    public float compareBurger(List<ingredientClass> tempo, List<ingredientClass> tempi)
+    {
+        foreach (ingredientClass ici in tempi)
+        {
+            foreach (ingredientClass ico in tempo)
+            {
+                if (ici.name == ico.name)
+                {
+                    if(ici.name == "cheese")
+                    {
+                        return (0);
+                    }
+                    else
+                    {
+                        print("Something broke.");
+                        return (0);
+                    }
+                    tempo.Remove(ico);
+                    tempi.Remove(ici);
+                    break;
+                }
+            }
+        }
+    }
 }
