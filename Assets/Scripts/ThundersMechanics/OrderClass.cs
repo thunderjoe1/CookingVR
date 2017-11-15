@@ -174,7 +174,17 @@ public class OrderClass : MonoBehaviour
                 {
                     if(ici.name == "cheese")
                     {
-                        return (0);
+                        Structs.cooked temp = ici.howCooked();
+                        if(temp.value <= temp.max)
+                        {
+                            return (1);
+                        }else if(temp.value > temp.max && temp.value < temp.max + 2)
+                        {
+                            return ((temp.max - temp.value)+1);
+                        }else
+                        {
+                            return (-1);
+                        }
                     }
                     else
                     {
@@ -187,5 +197,7 @@ public class OrderClass : MonoBehaviour
                 }
             }
         }
+        print("Why?");
+        return (0);
     }
 }
