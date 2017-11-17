@@ -42,7 +42,7 @@ namespace NewtonVR.Example
 
         private void LateUpdate()
         {
-            Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Trigger].SingleAxis > 0.01f);
+			Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Touchpad].Axis.y > 0.01f);
 
             if (Line.enabled == true)
             {
@@ -58,7 +58,7 @@ namespace NewtonVR.Example
                 {
                     endPoint = hitInfo.point;
 
-                    if (Hand.Inputs[NVRButtons.Trigger].PressDown == true)
+					if (Hand.Inputs[NVRButtons.Touchpad].PressDown == true)
                     {
                         NVRInteractable LHandInteractable = Player.LeftHand.CurrentlyInteracting;
                         NVRInteractable RHandInteractable = Player.RightHand.CurrentlyInteracting;
