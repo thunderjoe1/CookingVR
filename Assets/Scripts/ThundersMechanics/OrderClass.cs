@@ -132,17 +132,16 @@ public class OrderClass : MonoBehaviour
     ***********************************/
     public float compareFoods (foodClass o, foodClass i)
     {
-        return (2);
         if(o.GetType() == i.GetType())
         {
             List<ingredientClass> tempo = o.getIngredients();       //
             List<ingredientClass> tempi = i.getIngredients();       //
-            if(o.name == "burgerClass")
+            if(o.name == "Burger(Clone)")
             {
                 return (compareBurger(tempo,tempi));
             }else if(o.name == "steakClass")
             {
-
+                return (0);
             }else
             {
                 print("What did you even give me?");
@@ -166,38 +165,63 @@ public class OrderClass : MonoBehaviour
    ***********************************/
     public float compareBurger(List<ingredientClass> tempo, List<ingredientClass> tempi)
     {
-        foreach (ingredientClass ici in tempi)
+        float score = 0;
+        for (int i = 0; i < tempi.Count; i++)
         {
-            foreach (ingredientClass ico in tempo)
+            for (int o = 0; o < tempo.Count; o++)
             {
-                if (ici.name == ico.name)
+                if (tempi[i].name == tempo[o].name)
                 {
-                    if(ici.name == "cheese")
+                    if(tempi[i].name == "Cheese" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun")
                     {
-                        Structs.cooked temp = ici.howCooked();
+                        Structs.cooked temp = tempi[i].howCooked();
                         if(temp.value <= temp.max)
                         {
-                            return (1);
+                            score += 1;
                         }else if(temp.value > temp.max && temp.value < temp.max + 2)
                         {
-                            return ((temp.max - temp.value)+1);
+                            score += (temp.max - temp.value)+1;
                         }else
                         {
-                            return (-1);
+                            score += -1;
                         }
+                        print(tempi[i].name + " is tested.");
+                        tempo.Remove(tempo[o]);
+                        break;
+                    } else if (tempi[i].name == "Patty")
+                    {
+                        Structs.cooked temp = tempi[i].howCooked();
+                        if (temp.value <= temp.min)
+                        {
+                            score += (Mathf.Pow((temp.value/temp.max),1/2)*-50)+1;
+                        }
+                        else if (temp.value > temp.min && temp.value <= temp.max)
+                        {
+                            score += 1;
+                        } else if (temp.value > temp.max)
+                        {
+                            score += (Mathf.Pow(((temp.max - temp.min) / (temp.value - temp.min)),2)*2)-1;
+                        }
+                        else
+                        {
+                            score += -1;
+                        }
+                        print(tempi[i].name + " is tested.");
+                        tempo.Remove(tempo[o]);
+                        break;
                     }
                     else
                     {
+                        print(tempi[i].name);
                         print("Something broke.");
                         return (0);
                     }
-                    tempo.Remove(ico);
-                    tempi.Remove(ici);
-                    break;
+
                 }
             }
+            print("I = " + i);
+            print("i.count = " + tempi.Count);
         }
-        print("Why?");
-        return (0);
+        return (score);
     }
 }
