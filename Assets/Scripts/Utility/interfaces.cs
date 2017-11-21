@@ -17,3 +17,8 @@ public interface IHeatable
 {
     void Heat(float heatPerSecond);
 }
+
+public interface ITenderizable
+{
+    void Tenderize();
+}
