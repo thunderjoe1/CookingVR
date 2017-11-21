@@ -165,62 +165,76 @@ public class OrderClass : MonoBehaviour
    ***********************************/
     public float compareBurger(List<ingredientClass> tempo, List<ingredientClass> tempi)
     {
-        float score = 0;
+        float score = 0;                        //The score being giving for the food being tested.
+        bool ingredientMatched = false;         //A bool that stores wether or not the current ingredient in the order food is matched with an ingredient in the input food.
         for (int i = 0; i < tempi.Count; i++)
         {
             for (int o = 0; o < tempo.Count; o++)
             {
-                if (tempi[i].name == tempo[o].name)
+                if (ingredientMatched == true)
                 {
-                    if(tempi[i].name == "Cheese" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun")
+
+                } else if (tempi[i].GetType() == tempo[o].GetType())
+                {
+                    print(tempi[i].name);
+                    if(tempi[i].name == "Cheese Slice" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun")
                     {
                         Structs.cooked temp = tempi[i].howCooked();
                         if(temp.value <= temp.max)
                         {
                             score += 1;
+                            print("The " + tempi[i].name + " is undercooked.");
                         }else if(temp.value > temp.max && temp.value < temp.max + 2)
                         {
                             score += (temp.max - temp.value)+1;
-                        }else
+                            print("The " + tempi[i].name + " is cooked.");
+                        }
+                        else
                         {
                             score += -1;
+                            print("The " + tempi[i].name + " is overcooked.");
                         }
                         print(tempi[i].name + " is tested.");
                         tempo.Remove(tempo[o]);
-                        break;
+                        ingredientMatched = true;
                     } else if (tempi[i].name == "Patty")
                     {
                         Structs.cooked temp = tempi[i].howCooked();
                         if (temp.value <= temp.min)
                         {
                             score += (Mathf.Pow((temp.value/temp.max),1/2)*-50)+1;
+                            print("The " + tempi[i].name + " is undercooked.");
                         }
                         else if (temp.value > temp.min && temp.value <= temp.max)
                         {
                             score += 1;
+                            print("The " + tempi[i].name + " is cooked.");
                         } else if (temp.value > temp.max)
                         {
                             score += (Mathf.Pow(((temp.max - temp.min) / (temp.value - temp.min)),2)*2)-1;
+                            print("The " + tempi[i].name + " is overcooked.");
                         }
                         else
                         {
                             score += -1;
+                            print("The " + tempi[i].name + " is overcooked.");
                         }
                         print(tempi[i].name + " is tested.");
                         tempo.Remove(tempo[o]);
-                        break;
-                    }
-                    else
+                        ingredientMatched = true;
+                    } else
                     {
                         print(tempi[i].name);
                         print("Something broke.");
                         return (0);
                     }
-
                 }
+                print("O = " + o);
             }
+            ingredientMatched = false;
             print("I = " + i);
             print("i.count = " + tempi.Count);
+            print("Score = " + score);
         }
         return (score);
     }
