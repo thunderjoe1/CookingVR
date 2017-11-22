@@ -22,7 +22,6 @@ public class ingredientClass : MonoBehaviour, IHeatable
 	public void Heat(float heatPerSecond)
 	{
 		cooked.value += heatPerSecond * Time.deltaTime;
-		print (cooked.value);
 	}
 
 	public Structs.cooked howCooked()
