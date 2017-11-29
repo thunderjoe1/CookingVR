@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 23626734272648130}
   - component: {fileID: 95922911011461778}
   - component: {fileID: 54121178524276678}
-  - component: {fileID: 65714869994969160}
   - component: {fileID: 114302011867992946}
   - component: {fileID: 114237141476918736}
+  - component: {fileID: 65591895817937226}
   m_Layer: 0
   m_Name: Spawner Box (2)
   m_TagString: Untagged
@@ -177,7 +177,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1060491878889302}
-  m_Mesh: {fileID: 4300000, guid: cd50d3b947263dc49a3a52fec232afd8, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b326606970c12a24ab414fa56ebb7c67, type: 3}
 --- !u!33 &33777140372200294
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -214,7 +214,7 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65714869994969160
+--- !u!65 &65591895817937226
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -224,8 +224,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.016254853, y: 0.01, z: 0.013683883}
-  m_Center: {x: 0.0001467648, y: 0, z: 0}
+  m_Size: {x: 0.23924933, y: 0.24794942, z: 0.41755822}
+  m_Center: {x: 0, y: 0.0043500476, z: 0}
 --- !u!95 &95922911011461778
 Animator:
   serializedVersion: 3
