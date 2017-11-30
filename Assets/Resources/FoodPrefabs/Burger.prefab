@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e5a98bc8bf8434ca166404a1f07fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCooking: 0
 --- !u!114 &114328914085772056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -296,3 +297,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e5a98bc8bf8434ca166404a1f07fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCooking: 0

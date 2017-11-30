@@ -41,11 +41,13 @@ public class StartLevel : MonoBehaviour
         availibleFoods.Add(n);
     }
 
+    //I run clearFoods() on awake to be sure that no junk data is loaded into the variables on initiation.
     void Awake()
     {
         clearFoods();
     }
 
+    //Prints the items on the menu to the console.
     public static void printMenu()
     {
         foreach (int f in availibleFoods)
