@@ -59,20 +59,21 @@ public class OrderClass : MonoBehaviour
     Description and Use: 
 
     ***********************************/
-    public void selectRecipe(int n)
+    public GameObject selectRecipe(int n)
     {
         string temp = MasterFoodList.foodNamer(n);
 
         if(temp == "Burger")
         {
-            burgerRecipeChooser(MasterFoodList.foodSpawner(n,new Vector3(100,100,100),new Vector3(0,0,0)));
+            return(burgerRecipeChooser(MasterFoodList.foodSpawner(n,new Vector3(100,100,100),new Vector3(0,0,0))));
         }else if(temp == "Steak")
         {
-            steakRecipeChooser(MasterFoodList.foodSpawner(n, new Vector3(100, 100, 100), new Vector3(0, 0, 0)));
+            return(steakRecipeChooser(MasterFoodList.foodSpawner(n, new Vector3(100, 100, 100), new Vector3(0, 0, 0))));
         }
         else
         {
             print("OrderClass chose a food that doesn't exist.");
+            return (null);
         }
     }
 
@@ -83,7 +84,7 @@ public class OrderClass : MonoBehaviour
     Description and Use: 
 
     ***********************************/
-    public void burgerRecipeChooser(GameObject g)
+    public GameObject burgerRecipeChooser(GameObject g)
     {
         switch (Random.Range(0,1))
         {
@@ -93,10 +94,10 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
                 print("I want a burger with a cheese.");
-                break;
-            case 1:
+                return (g);
+            default:
                 print("burgerRecipeChooser chose a recipe that doesn't exist");
-                break;
+                return (null);
         }
     }
 
@@ -107,7 +108,7 @@ public class OrderClass : MonoBehaviour
     Description and Use: 
 
     ***********************************/
-    public void steakRecipeChooser(GameObject g)
+    public GameObject steakRecipeChooser(GameObject g)
     {
         switch (Random.Range(0, 1))
         {
@@ -115,10 +116,10 @@ public class OrderClass : MonoBehaviour
                 steakClass sc = g.GetComponent<steakClass>();
                 sc.addIngredientClass(g.AddComponent<meatIngot>() as meatIngot);
                 print("I want a meat ingot please.");
-                break;
-            case 1:
+                return (g);
+            default:
                 print("steakRecipeChooser chose a recipe that doesn't exist");
-                break;
+                return (null);
         }
     }
 
@@ -169,15 +170,17 @@ public class OrderClass : MonoBehaviour
         bool ingredientMatched = false;         //A bool that stores wether or not the current ingredient in the order food is matched with an ingredient in the input food.
         for (int i = 0; i < tempi.Count; i++)
         {
+            //For each ingredientClass in the input food...
             for (int o = 0; o < tempo.Count; o++)
             {
+                //...check each of the ingredientClasses in the ordered food. Then mark them as matched so that they aren't checked twich by accident.
                 if (ingredientMatched == true)
                 {
-
+                    //Skip ingredients that are already paired.
                 } else if (tempi[i].GetType() == tempo[o].GetType())
                 {
                     print(tempi[i].name);
-                    if(tempi[i].name == "Cheese Slice" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun")
+                    if(tempi[i].name == "Cheese Slice(Clone)" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun(Clone)")
                     {
                         Structs.cooked temp = tempi[i].howCooked();
                         if(temp.value <= temp.max)
@@ -197,7 +200,7 @@ public class OrderClass : MonoBehaviour
                         print(tempi[i].name + " is tested.");
                         tempo.Remove(tempo[o]);
                         ingredientMatched = true;
-                    } else if (tempi[i].name == "Patty")
+                    } else if (tempi[i].name == "Patty(Clone)")
                     {
                         Structs.cooked temp = tempi[i].howCooked();
                         if (temp.value <= temp.min)

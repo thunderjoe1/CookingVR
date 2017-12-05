@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCooking: 0
+<<<<<<< HEAD
 --- !u!114 &114188816275448000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,6 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0004be9123341574a9e5e8f8048c0541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> master
 --- !u!114 &114328914085772056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -469,6 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_Material: {fileID: 0}
   m_Color: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_RaycastTarget: 1
@@ -598,3 +602,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 261.1, y: 475.46}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+  isCooking: 0
+>>>>>>> master

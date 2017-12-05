@@ -26,8 +26,6 @@ public class TestScript : MonoBehaviour
         StartLevel.addFood(1);
         StartLevel.printMenu();
 
-        OrderClass.Instance.orderFood();
-
         testFunction();
     }
 
@@ -42,7 +40,11 @@ public class TestScript : MonoBehaviour
 
     void testFunction ()
     {
-        print (MasterFoodList.foodSpawner(0,new Vector3(0,0,0),new Vector3(0,0,0)).GetComponent<foodClass>().name);
-        gameManager.GetComponent<OrderClass>().selectRecipe(0);
+        testFoodOrder = gameManager.GetComponent<OrderClass>().selectRecipe(0);
+    }
+
+    void OnTriggerEnter (Collider col)
+    {
+        testFoodIn = col.gameObject;
     }
 }
