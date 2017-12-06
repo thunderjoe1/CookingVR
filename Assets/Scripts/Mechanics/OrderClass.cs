@@ -86,14 +86,47 @@ public class OrderClass : MonoBehaviour
     ***********************************/
     public GameObject burgerRecipeChooser(GameObject g)
     {
-        switch (Random.Range(0,1))
+        burgerClass bc;
+        switch (Random.Range(0,5))
         {
             case 0:
-                burgerClass bc = g.GetComponent<burgerClass>();
+                bc = g.GetComponent<burgerClass>();
                 bc.addIngredientClass(g.AddComponent<patty>()as patty);
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
                 print("I want a burger with a cheese.");
+                return (g);
+            case 1:
+                bc = g.GetComponent<burgerClass>();
+                bc.addIngredientClass(g.AddComponent<patty>() as patty);
+                bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
+                bc.addIngredientClass(g.AddComponent<lettuce>() as lettuce);
+                bc.addIngredientClass(g.AddComponent<tomatoSlice>() as tomatoSlice);
+                bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
+                print("I want a burger with everything.");
+                return (g);
+            case 2:
+                bc = g.GetComponent<burgerClass>();
+                bc.addIngredientClass(g.AddComponent<patty>() as patty);
+                bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
+                bc.addIngredientClass(g.AddComponent<lettuce>() as lettuce);
+                bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
+                print("I want a burger with cheese and lettuce.");
+                return (g);
+            case 3:
+                bc = g.GetComponent<burgerClass>();
+                bc.addIngredientClass(g.AddComponent<patty>() as patty);
+                bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
+                bc.addIngredientClass(g.AddComponent<patty>() as patty);
+                bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
+                bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
+                print("I want a double cheeseburger.");
+                return (g);
+            case 4:
+                bc = g.GetComponent<burgerClass>();
+                bc.addIngredientClass(g.AddComponent<patty>() as patty);
+                bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
+                print("I want a burger no cheese.");
                 return (g);
             default:
                 print("burgerRecipeChooser chose a recipe that doesn't exist");
@@ -167,7 +200,17 @@ public class OrderClass : MonoBehaviour
     public float compareBurger(List<ingredientClass> tempo, List<ingredientClass> tempi)
     {
         float score = 0;                        //The score being giving for the food being tested.
+        float maxScore;                         //The maximum score you can get for this food item.
         bool ingredientMatched = false;         //A bool that stores wether or not the current ingredient in the order food is matched with an ingredient in the input food.
+
+        if (tempi.Count > tempo.Count)
+        {
+            maxScore = tempi.Count;
+        } else
+        {
+            maxScore = tempo.Count;
+        }
+
         for (int i = 0; i < tempi.Count; i++)
         {
             //For each ingredientClass in the input food...
@@ -180,7 +223,7 @@ public class OrderClass : MonoBehaviour
                 } else if (tempi[i].GetType() == tempo[o].GetType())
                 {
                     print(tempi[i].name);
-                    if(tempi[i].name == "Cheese Slice(Clone)" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun(Clone)")
+                    if(tempi[i].name == "Cheese Slice(Clone)" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun(Clone)" || tempi[i].name == "Lettuce Leaf(Clone)" || tempi[i].name == "Tomato Slice(Clone)")
                     {
                         Structs.cooked temp = tempi[i].howCooked();
                         if(temp.value <= temp.max)
@@ -227,9 +270,8 @@ public class OrderClass : MonoBehaviour
                         ingredientMatched = true;
                     } else
                     {
-                        print(tempi[i].name);
-                        print("Something broke.");
-                        return (0);
+                        print(tempi[i].name + " isn't supposed to be on there.");
+                        score += -1;
                     }
                 }
                 print("O = " + o);
@@ -239,6 +281,6 @@ public class OrderClass : MonoBehaviour
             print("i.count = " + tempi.Count);
             print("Score = " + score);
         }
-        return (score);
+        return ((score/maxScore));
     }
 }
