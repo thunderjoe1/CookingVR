@@ -200,7 +200,17 @@ public class OrderClass : MonoBehaviour
     public float compareBurger(List<ingredientClass> tempo, List<ingredientClass> tempi)
     {
         float score = 0;                        //The score being giving for the food being tested.
+        float maxScore;                         //The maximum score you can get for this food item.
         bool ingredientMatched = false;         //A bool that stores wether or not the current ingredient in the order food is matched with an ingredient in the input food.
+
+        if (tempi.Count > tempo.Count)
+        {
+            maxScore = tempi.Count;
+        } else
+        {
+            maxScore = tempo.Count;
+        }
+
         for (int i = 0; i < tempi.Count; i++)
         {
             //For each ingredientClass in the input food...
@@ -260,9 +270,8 @@ public class OrderClass : MonoBehaviour
                         ingredientMatched = true;
                     } else
                     {
-                        print(tempi[i].name);
-                        print("Something broke.");
-                        return (0);
+                        print(tempi[i].name + " isn't supposed to be on there.");
+                        score += -1;
                     }
                 }
                 print("O = " + o);
@@ -272,6 +281,6 @@ public class OrderClass : MonoBehaviour
             print("i.count = " + tempi.Count);
             print("Score = " + score);
         }
-        return (score);
+        return ((score/maxScore));
     }
 }

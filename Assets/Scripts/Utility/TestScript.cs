@@ -45,6 +45,9 @@ public class TestScript : MonoBehaviour
 
     void OnTriggerEnter (Collider col)
     {
-        testFoodIn = col.gameObject;
+        if(col.gameObject.GetComponent<foodClass>())
+        {
+            testFoodIn = col.gameObject;
+        }
     }
 }
