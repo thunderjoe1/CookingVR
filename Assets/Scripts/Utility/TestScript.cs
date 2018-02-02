@@ -18,6 +18,7 @@ public class TestScript : MonoBehaviour
     public GameObject testFoodIn;
     public GameObject testFoodOrder;
     public GameObject gameManager;
+    public GameObject textBox;
     bool tested = false;
 
     void Start()
@@ -34,13 +35,13 @@ public class TestScript : MonoBehaviour
         if(tested == false && testFoodIn && testFoodOrder)
         {
             tested = true;
-            print(gameManager.GetComponent<OrderClass>().compareFoods(testFoodOrder.GetComponent<foodClass>(), testFoodIn.GetComponent<foodClass>()));
+            print(gameManager.GetComponent<OrderClass>().compareFoods(testFoodOrder.GetComponent<foodClass>(), testFoodIn.GetComponent<foodClass>(), textBox));
         }
     }
 
     void testFunction ()
     {
-        testFoodOrder = gameManager.GetComponent<OrderClass>().selectRecipe(0);
+        testFoodOrder = gameManager.GetComponent<OrderClass>().selectRecipe(0, textBox);
     }
 
     void OnTriggerEnter (Collider col)

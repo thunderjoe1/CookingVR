@@ -12,6 +12,7 @@ Last Edit Description:
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OrderClass : MonoBehaviour
 {
@@ -35,9 +36,9 @@ public class OrderClass : MonoBehaviour
     Description and Use: Runs selectFromMenu and then loads the output in selectRecipe.
 
     ***********************************/
-    public void orderFood()
+    public void orderFood(GameObject text)
     {
-        selectRecipe(selectFromMenu());
+        selectRecipe(selectFromMenu(), text);
     }
 
     /*********************************
@@ -59,16 +60,16 @@ public class OrderClass : MonoBehaviour
     Description and Use: 
 
     ***********************************/
-    public GameObject selectRecipe(int n)
+    public GameObject selectRecipe(int n, GameObject text)
     {
         string temp = MasterFoodList.foodNamer(n);
 
         if(temp == "Burger")
         {
-            return(burgerRecipeChooser(MasterFoodList.foodSpawner(n,new Vector3(100,100,100),new Vector3(0,0,0))));
+            return(burgerRecipeChooser(MasterFoodList.foodSpawner(n,new Vector3(100,100,100),new Vector3(0,0,0)), text));
         }else if(temp == "Steak")
         {
-            return(steakRecipeChooser(MasterFoodList.foodSpawner(n, new Vector3(100, 100, 100), new Vector3(0, 0, 0))));
+            return (steakRecipeChooser(MasterFoodList.foodSpawner(n, new Vector3(100, 100, 100), new Vector3(0, 0, 0))));
         }
         else
         {
@@ -84,7 +85,7 @@ public class OrderClass : MonoBehaviour
     Description and Use: 
 
     ***********************************/
-    public GameObject burgerRecipeChooser(GameObject g)
+    public GameObject burgerRecipeChooser(GameObject g, GameObject text)
     {
         burgerClass bc;
         switch (Random.Range(0,5))
@@ -94,7 +95,7 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<patty>()as patty);
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                print("I want a burger with a cheese.");
+                text.GetComponent<Text>().text = "I want a burger with a cheese.";
                 return (g);
             case 1:
                 bc = g.GetComponent<burgerClass>();
@@ -103,7 +104,7 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<lettuce>() as lettuce);
                 bc.addIngredientClass(g.AddComponent<tomatoSlice>() as tomatoSlice);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                print("I want a burger with everything.");
+                text.GetComponent<Text>().text = "I want a burger with everything.";
                 return (g);
             case 2:
                 bc = g.GetComponent<burgerClass>();
@@ -111,7 +112,7 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<lettuce>() as lettuce);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                print("I want a burger with cheese and lettuce.");
+                text.GetComponent<Text>().text = "I want a burger with cheese and lettuce.";
                 return (g);
             case 3:
                 bc = g.GetComponent<burgerClass>();
@@ -120,16 +121,16 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<patty>() as patty);
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                print("I want a double cheeseburger.");
+                text.GetComponent<Text>().text = "I want a double cheeseburger.";
                 return (g);
             case 4:
                 bc = g.GetComponent<burgerClass>();
                 bc.addIngredientClass(g.AddComponent<patty>() as patty);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                print("I want a burger no cheese.");
+                text.GetComponent<Text>().text = "I want a burger no cheese.";
                 return (g);
             default:
-                print("burgerRecipeChooser chose a recipe that doesn't exist");
+                text.GetComponent<Text>().text = "burgerRecipeChooser chose a recipe that doesn't exist";
                 return (null);
         }
     }
@@ -164,7 +165,7 @@ public class OrderClass : MonoBehaviour
     Description and Use: Compares i to o and returns a score based on how close the player is to correct.
 
     ***********************************/
-    public float compareFoods (foodClass o, foodClass i)
+    public float compareFoods (foodClass o, foodClass i, GameObject text)
     {
         if(o.GetType() == i.GetType())
         {
@@ -172,7 +173,7 @@ public class OrderClass : MonoBehaviour
             List<ingredientClass> tempi = i.getIngredients();       //
             if(o.name == "Burger(Clone)")
             {
-                return (compareBurger(tempo,tempi));
+                return (compareBurger(tempo,tempi,text));
             }else if(o.name == "steakClass")
             {
                 return (0);
@@ -197,7 +198,7 @@ public class OrderClass : MonoBehaviour
    Description and Use: Compares tempi to tempo and returns a score based on how close the player is to correct.
 
    ***********************************/
-    public float compareBurger(List<ingredientClass> tempo, List<ingredientClass> tempi)
+    public float compareBurger(List<ingredientClass> tempo, List<ingredientClass> tempi, GameObject text)
     {
         float score = 0;                        //The score being giving for the food being tested.
         float maxScore;                         //The maximum score you can get for this food item.
@@ -279,7 +280,7 @@ public class OrderClass : MonoBehaviour
             ingredientMatched = false;
             print("I = " + i);
             print("i.count = " + tempi.Count);
-            print("Score = " + score);
+            text.GetComponent<Text>().text = score + " out of " + maxScore;
         }
         return ((score/maxScore));
     }
