@@ -13,13 +13,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ingredientClass : MonoBehaviour, IHeatable
+public class ingredientClass : MonoBehaviour, IHeatable, ISeasonable
 {
-	protected Structs.cooked cooked;
-    public Vector3 posCor { get; protected set; }                           //This x,y,z corridinate change so that the ingredient doesn't clip through its food.
+	protected List<Structs.cooked> cooked;
+    public Vector3 posCor { get; protected set; }                        //This x,y,z corridinate change so that the ingredient doesn't clip through its food.
 	public bool isCooking;													
 
-	public void Heat(float heatPerSecond)
+	public void Heat(Structs.cooked cooked, float heatPerSecond)
 	{
 		cooked.value += heatPerSecond * Time.deltaTime;
 	}
