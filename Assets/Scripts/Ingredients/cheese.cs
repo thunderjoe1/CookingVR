@@ -18,6 +18,7 @@ public class cheese : ingredientClass
     void Awake ()
     {
         posCor = new Vector3(0, 0.001f, 0);
-        cooked = new Structs.cooked(0, 5, 10);
+		Structs.cooked newCooked = new Structs.cooked (cookingType.cooking, 0, 5, 10);
+		cookedList.Add (newCooked);
     }
 }

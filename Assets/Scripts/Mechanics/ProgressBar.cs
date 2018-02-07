@@ -27,6 +27,7 @@ public class ProgressBar : MonoBehaviour {
 	float minimumCookedValue;												//Reference to the minimum cooked value of the ingredient the canvas is attached to
 	float maximumCookedValue;												//Reference to the maximum cooked value of the ingredient the canvas is attached to
 	float pastCookedValue;													//Reference to the cooked value from the last frame in order to compare it to the current frame to see if the object is being cooked
+	public cookingType currentCookType;											//The current cook type affecting the progress bar
 
 	Vector3 minPosition = new Vector3 (0, -230, 0);							//The position of the minimum bar on the progress bar
 	Vector3 maxPosition = new Vector3 (0, 230, 0);							//The position of the maximum bar on the progress bar
@@ -47,11 +48,11 @@ public class ProgressBar : MonoBehaviour {
         Functions Inputs: nothing
         Function Returns: nothing
         Description and Use:
-            Used to controll functionality of the progress bar every frame
+        	Used to control functionality of the progress bar every frame
         ***********************************/
 	void ProgressBarControl () {
 		//Sets the current cooked value as a percentage
-		currentCookedValue = myIngredientParent.currentCookedValue ()/100f;
+		currentCookedValue = myIngredientParent.currentCookedValue (currentCookType)/100f;
 		//If the cookedvalue from the last frame is equal to the currentCooked value, disable the progress bar
 		if (currentCookedValue == pastCookedValue) {
 			myCanvas.enabled = false;
@@ -91,9 +92,9 @@ public class ProgressBar : MonoBehaviour {
 		progressSprite = progressBarSprite.GetComponent<Image> ();
 		myIngredientParent = transform.parent.gameObject.GetComponent<ingredientClass> ();
 		//Sets the current, minimum and maximum cooked values
-		minimumCookedValue = myIngredientParent.howCooked ().min / 100f;
-		maximumCookedValue = myIngredientParent.howCooked ().max / 100f;
-		currentCookedValue = myIngredientParent.howCooked ().value;
+		minimumCookedValue = myIngredientParent.howCooked (currentCookType).min / 100f;
+		maximumCookedValue = myIngredientParent.howCooked (currentCookType).max / 100f;
+		currentCookedValue = myIngredientParent.howCooked (currentCookType).value;
 		//Sets the position of the minimum and maximum bars
 		progressBarMinSprite.GetComponent<RectTransform> ().anchoredPosition = Vector3.Lerp (minPosition, maxPosition, minimumCookedValue/maximumCookedValue);
 	}

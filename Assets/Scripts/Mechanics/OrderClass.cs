@@ -225,49 +225,86 @@ public class OrderClass : MonoBehaviour
                     print(tempi[i].name);
                     if(tempi[i].name == "Cheese Slice(Clone)" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun(Clone)" || tempi[i].name == "Lettuce Leaf(Clone)" || tempi[i].name == "Tomato Slice(Clone)")
                     {
-                        Structs.cooked temp = tempi[i].howCooked();
-                        if(temp.value <= temp.max)
-                        {
-                            score += 1;
-                            print("The " + tempi[i].name + " is undercooked.");
-                        }else if(temp.value > temp.max && temp.value < temp.max + 2)
-                        {
-                            score += (temp.max - temp.value)+1;
-                            print("The " + tempi[i].name + " is cooked.");
-                        }
-                        else
-                        {
-                            score += -1;
-                            print("The " + tempi[i].name + " is overcooked.");
-                        }
-                        print(tempi[i].name + " is tested.");
-                        tempo.Remove(tempo[o]);
-                        ingredientMatched = true;
+						List<Structs.cooked> temp = tempi[i].getCookedList();
+						bool isCooked = false;								//True if the food is cooked as opposed to being undercooked.
+						bool isOvercooked = false;							//True if the food is overcooked.
+
+						for (int n = 0; n < temp.Count; n++)
+						{
+							if(temp[n].value <= temp[n].max)
+							{
+								print("The " + tempi[i].name + " is undercooked. It was cooked via " + temp[n].cookType + ".");
+							}else if(temp[n].value > temp[n].max && temp[n].value < temp[n].max + 2)
+							{
+								isCooked = true;
+								print("The " + tempi[i].name + " is cooked. It was cooked via " + temp[n].cookType + ".");
+							}
+							else
+							{
+								isOvercooked = true;
+								print("The " + tempi[i].name + " is overcooked. It was cooked via " + temp[n].cookType + ".");
+							}
+						}
+						if(!isCooked && !isOvercooked)
+						{
+							score += 1;
+							print("The " + tempi[i].name + " is undercooked.");
+						}else if(isCooked && !isOvercooked)
+						{
+							score += 1;
+							print("The " + tempi[i].name + " is cooked.");
+						}else if (isOvercooked)
+						{
+							score += -1;
+							print("The " + tempi[i].name + " is overcooked.");
+						}else
+						{
+							throw new System.ArgumentException ("The isCooked and isOvercooked bools are in an invalid combination.");
+						}
+						print(tempi[i].name + " is tested.");
+						tempo.Remove(tempo[o]);
+						ingredientMatched = true;
                     } else if (tempi[i].name == "Patty(Clone)")
                     {
-                        Structs.cooked temp = tempi[i].howCooked();
-                        if (temp.value <= temp.min)
-                        {
-                            score += (Mathf.Pow((temp.value/temp.max),1/2)*-50)+1;
-                            print("The " + tempi[i].name + " is undercooked.");
-                        }
-                        else if (temp.value > temp.min && temp.value <= temp.max)
-                        {
-                            score += 1;
-                            print("The " + tempi[i].name + " is cooked.");
-                        } else if (temp.value > temp.max)
-                        {
-                            score += (Mathf.Pow(((temp.max - temp.min) / (temp.value - temp.min)),2)*2)-1;
-                            print("The " + tempi[i].name + " is overcooked.");
-                        }
-                        else
-                        {
-                            score += -1;
-                            print("The " + tempi[i].name + " is overcooked.");
-                        }
-                        print(tempi[i].name + " is tested.");
-                        tempo.Remove(tempo[o]);
-                        ingredientMatched = true;
+						List<Structs.cooked> temp = tempi[i].getCookedList();
+						bool isCooked = false;								//True if the food is cooked as opposed to being undercooked.
+						bool isOvercooked = false;							//True if the food is overcooked.
+
+						for (int n = 0; n < temp.Count; n++)
+						{
+							if(temp[n].value <= temp[n].max)
+							{
+								print("The " + tempi[i].name + " is undercooked. It was cooked via " + temp[n].cookType + ".");
+							}else if(temp[n].value > temp[n].max && temp[n].value < temp[n].max + 2)
+							{
+								isCooked = true;
+								print("The " + tempi[i].name + " is cooked. It was cooked via " + temp[n].cookType + ".");
+							}
+							else
+							{
+								isOvercooked = true;
+								score += (Mathf.Pow(((temp[n].max - temp[n].min) / (temp[n].value - temp[n].min)),2)*2)-1;
+								print("The " + tempi[i].name + " is overcooked. It was cooked via " + temp[n].cookType + ".");
+							}
+						}
+						if(!isCooked && !isOvercooked)
+						{
+							score += (Mathf.Pow((temp[0].value/temp[0].max),1/2)*-50)+1;
+							print("The " + tempi[i].name + " is undercooked.");
+						}else if(isCooked && !isOvercooked)
+						{
+							score += 1;
+							print("The " + tempi[i].name + " is cooked.");
+						}else if (isOvercooked)
+						{
+							print("The " + tempi[i].name + " is overcooked.");
+						}else
+						{
+							throw new System.ArgumentException ("The isCooked and isOvercooked bools are in an invalid combination.");
+						}
+						print(tempi[i].name + " is tested.");
+						tempo.Remove(tempo[o]);
+						ingredientMatched = true;
                     } else
                     {
                         print(tempi[i].name + " isn't supposed to be on there.");

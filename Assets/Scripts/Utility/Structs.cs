@@ -36,6 +36,10 @@ public class Structs : MonoBehaviour
             this.min = i;
             this.max = a;
         }
+
+		public void heatMe(float heatPerSecond) {
+			value += heatPerSecond * Time.deltaTime;
+		}
     }
 
 	public struct seasoned {

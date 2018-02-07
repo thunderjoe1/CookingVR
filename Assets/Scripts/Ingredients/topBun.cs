@@ -18,6 +18,6 @@ public class topBun : ingredientClass
     void Awake()
     {
         posCor = new Vector3(0, 0.014f, 0);
-        cooked = new Structs.cooked(0, 10, 20);
+		cookedList.Add (new Structs.cooked(cookingType.cooking, 0, 10, 20));
     }
 }
