@@ -12515,6 +12515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4066475e257b1448c7c13894044fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heatValue: 1
 --- !u!1001 &2038787852
 Prefab:
   m_ObjectHideFlags: 0

@@ -53,12 +53,7 @@ public class ProgressBar : MonoBehaviour {
 	void ProgressBarControl () {
 		//Sets the current cooked value as a percentage
 		currentCookedValue = myIngredientParent.currentCookedValue (currentCookType)/100f;
-		//If the cookedvalue from the last frame is equal to the currentCooked value, disable the progress bar
-		if (currentCookedValue == pastCookedValue) {
-			myCanvas.enabled = false;
-		} else {
-			myCanvas.enabled = true;
-		}
+
 		//Sets the size of the progress bar to reflect the percentage cooked
 		progressBarSprite.GetComponent<RectTransform> ().sizeDelta = new Vector2 (238.6f, Mathf.Lerp(0, 460, currentCookedValue/maximumCookedValue));
 		//Sets a pair of percentages on the progress bar that dictate when it changes colors

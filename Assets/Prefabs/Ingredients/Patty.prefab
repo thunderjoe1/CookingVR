@@ -64,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1379674693076864
 GameObject:
   m_ObjectHideFlags: 1
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0004be9123341574a9e5e8f8048c0541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCookType: 0
 --- !u!114 &114400440134608700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,6 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCooking: 0
+  myCanvasChild: {fileID: 1306960439765514}
 --- !u!114 &114820996856046306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,7 +441,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306960439765514}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
