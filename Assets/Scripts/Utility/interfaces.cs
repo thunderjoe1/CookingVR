@@ -15,10 +15,15 @@ using UnityEngine;
 //Interface that says that an object can be heated.E.g. is cookable on a flat top.
 public interface IHeatable
 {
-    void Heat(float heatPerSecond);
+	void Heat(cookingType cookType, float heatPerSecond);
+	float currentCookedValue (cookingType cookType);
 }
 
 public interface ITenderizable
 {
     void Tenderize();
+}
+
+public interface ISeasonable {
+	void Season (Structs.seasoned seasoned);
 }

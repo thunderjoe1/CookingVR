@@ -13,23 +13,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ingredientClass : MonoBehaviour, IHeatable
-{
-	protected Structs.cooked cooked;
-    public Vector3 posCor { get; protected set; }                           //This x,y,z corridinate change so that the ingredient doesn't clip through its food.
-	public bool isCooking;													
+public class ingredientClass : MonoBehaviour, IHeatable, ISeasonable
+{												
+	public Vector3 posCor { get; protected set; }                        //This x,y,z corridinate change so that the ingredient doesn't clip through its food.											
+	public bool isCooking;
+	public GameObject myCanvasChild;
 
-	public void Heat(float heatPerSecond)
+	virtual public void Heat(cookingType cookType, float heatPerSecond)
 	{
-		cooked.value += heatPerSecond * Time.deltaTime;
+		
 	}
 
-	public Structs.cooked howCooked()
+	virtual public Structs.cooked howCooked(cookingType cookType)
 	{
-		return cooked;
+		throw new System.ArgumentException ("Not cooked in this way brev");
 	}
 
-	public float currentCookedValue () {
-		return cooked.value;
+	virtual public List<Structs.cooked> getCookedList ()
+	{
+		throw new System.ArgumentException ("Not cooked in this way brev");
+	}
+
+	virtual public float currentCookedValue (cookingType cookType) {
+		throw new System.ArgumentException ("Not cooked in this way brev");
+	}
+
+	public void Season (Structs.seasoned seasonStruct) {
+
 	}
 }

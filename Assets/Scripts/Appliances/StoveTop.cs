@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StoveTop : MonoBehaviour
 {
+	private cookingType myCookType = cookingType.cooking;
+	public float heatValue;
+
     void OnTriggerStay(Collider item)
     {
         MonoBehaviour[] list = item.GetComponents<MonoBehaviour>();
@@ -12,7 +15,7 @@ public class StoveTop : MonoBehaviour
             if (mb is IHeatable)
             {
                 IHeatable heatable = (IHeatable)mb;
-                heatable.Heat(1);
+				heatable.Heat(myCookType, heatValue);
             }
         }
     }
@@ -24,6 +27,8 @@ public class StoveTop : MonoBehaviour
 			if (mb is ingredientClass)
 			{
 				ingredientClass i = (ingredientClass)mb;
+				i.myCanvasChild.SetActive (true);
+				i.myCanvasChild.GetComponent<ProgressBar>().currentCookType = myCookType;
 				i.isCooking = true;
 			}
 		}
@@ -36,6 +41,7 @@ public class StoveTop : MonoBehaviour
 			if (mb is ingredientClass)
 			{
 				ingredientClass i = (ingredientClass)mb;
+				i.myCanvasChild.SetActive (false);
 				i.isCooking = false;
 			}
 		}
