@@ -1509,6 +1509,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1306960439765514, guid: 70020ebe0ba2ddc4397322812ba66c9e, type: 2}
+      propertyPath: m_Name
+      value: Cook Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 23556566360409302, guid: 70020ebe0ba2ddc4397322812ba66c9e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19bf3370052164044842fc8c30251493, type: 2}
+    - target: {fileID: 54929331187650514, guid: 70020ebe0ba2ddc4397322812ba66c9e,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70020ebe0ba2ddc4397322812ba66c9e, type: 2}
   m_IsPrefabParent: 0
@@ -1521,31 +1535,31 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1117249
+      value: 2.1899
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.732
+      value: 0.5891
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.119
+      value: -5.5542
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.00000058114523
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_RootOrder
@@ -1561,7 +1575,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 5087eb39b9343fc4c9b5cd5d77a2da5a, type: 2}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -180.00002
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a22fcc956c0f9064882a1f864171685e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1801,7 +1815,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 302005492
+  randomSeed: 1530111487
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5067,6 +5081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7c01760a02e064c85040a61fb812f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySeasonType: 1
+  seasonValue: 1
 --- !u!1001 &1359145026
 Prefab:
   m_ObjectHideFlags: 0
@@ -8636,6 +8652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7c01760a02e064c85040a61fb812f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySeasonType: 0
+  seasonValue: 0
 --- !u!1 &1526477225
 GameObject:
   m_ObjectHideFlags: 0
@@ -8928,6 +8946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7c01760a02e064c85040a61fb812f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySeasonType: 0
+  seasonValue: 0
 --- !u!198 &1806121782
 ParticleSystem:
   m_ObjectHideFlags: 0
