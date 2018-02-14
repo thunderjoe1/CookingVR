@@ -38,7 +38,7 @@ public class ingredientClass : MonoBehaviour, IHeatable, ISeasonable
 		throw new System.ArgumentException ("Not cooked in this way brev");
 	}
 
-	public void Season (Structs.seasoned seasonStruct) {
+	virtual public void Season (seasonType seasonType, float seasonValue) {
 
 	}
 }

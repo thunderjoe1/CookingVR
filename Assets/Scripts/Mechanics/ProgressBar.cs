@@ -27,7 +27,7 @@ public class ProgressBar : MonoBehaviour {
 	float minimumCookedValue;												//Reference to the minimum cooked value of the ingredient the canvas is attached to
 	float maximumCookedValue;												//Reference to the maximum cooked value of the ingredient the canvas is attached to
 	float pastCookedValue;													//Reference to the cooked value from the last frame in order to compare it to the current frame to see if the object is being cooked
-	public cookingType currentCookType;											//The current cook type affecting the progress bar
+	public cookingType currentCookType;										//The current cook type affecting the progress bar
 
 	Vector3 minPosition = new Vector3 (0, -230, 0);							//The position of the minimum bar on the progress bar
 	Vector3 maxPosition = new Vector3 (0, 230, 0);							//The position of the maximum bar on the progress bar

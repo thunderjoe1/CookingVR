@@ -25,5 +25,5 @@ public interface ITenderizable
 }
 
 public interface ISeasonable {
-	void Season (Structs.seasoned seasoned);
+	void Season (seasonType seasonType, float seasonValue);
 }
