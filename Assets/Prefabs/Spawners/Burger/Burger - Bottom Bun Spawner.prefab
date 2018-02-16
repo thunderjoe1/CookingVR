@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799a014a2f843494a97c17d633d537e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientPrefab: {fileID: 1953757564392882, guid: edbce4787fea4ce42835328ab5031f74,
+  ingredientPrefab: {fileID: 1053905410981522, guid: 267ba45f9fb5fde4fb368562f0d77d21,
     type: 2}
 --- !u!114 &114973533028572344
 MonoBehaviour:
