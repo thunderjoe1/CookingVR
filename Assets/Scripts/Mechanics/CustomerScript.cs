@@ -15,6 +15,19 @@ using UnityEngine;
 
 public class CustomerScript : MonoBehaviour
 {
+    GameObject menuManager;                 //The GameObject with the OrderMenuManager which is displaying this customer.
+
+    /*********************************
+    Function Name: CustomerScript
+    Functions Inputs: GameObject with the OrderMenuManager which is displaying this customer.
+    Function Returns: nothing
+    Description and Use: Constructor used to load values when creating this script.
+    ***********************************/
+    public CustomerScript (GameObject menu)
+    {
+        menuManager = menu;
+    }
+
     void Start()
     {
         makeOrder();

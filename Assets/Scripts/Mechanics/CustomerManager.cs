@@ -93,7 +93,7 @@ public class CustomerManager : MonoBehaviour
     ***********************************/
     void generateCustomer()
     {
-
+        customers.Add(new CustomerScript());
         timeNext = whenNextCustomer();
     }
 }

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 65705122644343450}
   - component: {fileID: 114790040599301432}
   - component: {fileID: 114518542309618518}
+  - component: {fileID: 114869804313147392}
   m_Layer: 0
   m_Name: Tomato Slice
   m_TagString: Untagged
@@ -369,6 +370,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114869804313147392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1911878909049286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20957b25a2194f54fbf3749d9e0de9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundMaker: {fileID: 1120867379364908, guid: 036411f1c6c7cfe4fa56ff7fecdf0a9e, type: 2}
+  collisionSound: {fileID: 8300000, guid: 23e8a66fa133c534fb165460f97be683, type: 3}
 --- !u!114 &114892118838096142
 MonoBehaviour:
   m_ObjectHideFlags: 1
