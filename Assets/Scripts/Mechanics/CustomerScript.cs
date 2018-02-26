@@ -16,16 +16,21 @@ using UnityEngine;
 public class CustomerScript : MonoBehaviour
 {
     GameObject menuManager;                 //The GameObject with the OrderMenuManager which is displaying this customer.
+    [SerializeField]
+    int slot;                               //The slot on the menu that this customer occupies.
 
     /*********************************
     Function Name: CustomerScript
-    Functions Inputs: GameObject with the OrderMenuManager which is displaying this customer.
-    Function Returns: nothing
-    Description and Use: Constructor used to load values when creating this script.
+    Functions Inputs: gameObject that the CustomerScript is added to. GameObject with the OrderMenuManager which is displaying this customer. int the number of the slot in the order system the customer is occupying.
+    Function Returns: the CustomerScript that was added by this function.
+    Description and Use: Used to add a CustomerScript to an object while defining starting values.
     ***********************************/
-    public CustomerScript (GameObject menu)
+    public static CustomerScript addCustomerScript (GameObject obj, GameObject menu, int slotNum)
     {
-        menuManager = menu;
+        CustomerScript temp = obj.AddComponent<CustomerScript>();
+        temp.menuManager = menu;
+        temp.slot = slotNum;
+        return temp;
     }
 
     void Start()
@@ -35,6 +40,6 @@ public class CustomerScript : MonoBehaviour
 
     void makeOrder()
     {
-
+        print("Made an order.");
     }
 }

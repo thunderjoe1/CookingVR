@@ -23,6 +23,8 @@ public class TestScript : MonoBehaviour
         StartLevel.printMenu();
 
         testFunction();
+
+        CustomerManager.addCustomerManager(gameObject, 30, 180, new List<string>(), new List<float>(), new List<float>(), new List<float>(), 6).enabled = true;
     }
 
     void Update ()
@@ -31,6 +33,6 @@ public class TestScript : MonoBehaviour
 
     void testFunction ()
     {
-        gameManager.GetComponent<OrderClass>().selectRecipe(0);
+//        gameManager.GetComponent<OrderClass>().selectRecipe(0);
     }
 }
