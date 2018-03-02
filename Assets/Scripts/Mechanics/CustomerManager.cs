@@ -37,6 +37,7 @@ public class CustomerManager : MonoBehaviour
     [SerializeField]
     List<CustomerScript> customers = new List<CustomerScript>();    //List of customers currently in the store.
     public GameObject menuManager;                                  //The GameObject that manages the order menu in the scene. Needs to be fed to the customers as they spawn.
+    public GameObject gameManager;                                  //The GameObject that contains the game managers. Most importantly the OrderClass for the level.
 
 
     /*********************************
@@ -58,7 +59,7 @@ public class CustomerManager : MonoBehaviour
         {
             temp.customerSlot.Add(false);
         }
-        return temp.GetComponent<CustomerManager>();
+        return temp;
     }
 
     void Awake()
@@ -112,6 +113,8 @@ public class CustomerManager : MonoBehaviour
                 if(customerSlot[i] == false)
                 {
                     customers.Add(CustomerScript.addCustomerScript(gameObject, null, i));
+                    customers[customers.Count - 1].gameManager = gameManager;
+                    customers[customers.Count - 1].menuManager = menuManager;
                     customerSlot[i] = true;
                     i += customerSlot.Count;
                 }

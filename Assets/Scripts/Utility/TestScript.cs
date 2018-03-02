@@ -16,6 +16,7 @@ using UnityEngine;
 public class TestScript : MonoBehaviour
 {
     public GameObject gameManager;
+    public GameObject menuManager;
     bool tested = false;
 
     void Start()
@@ -24,7 +25,10 @@ public class TestScript : MonoBehaviour
 
         testFunction();
 
-        CustomerManager.addCustomerManager(gameObject, 30, 180, new List<string>(), new List<float>(), new List<float>(), new List<float>(), 6).enabled = true;
+        CustomerManager temp = CustomerManager.addCustomerManager(gameObject, 30, 180, new List<string>(), new List<float>(), new List<float>(), new List<float>(), 6);
+        temp.enabled = true;
+        temp.menuManager = menuManager;
+        temp.gameManager = gameManager;
     }
 
     void Update ()

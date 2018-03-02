@@ -15,7 +15,8 @@ using UnityEngine;
 
 public class CustomerScript : MonoBehaviour
 {
-    GameObject menuManager;                 //The GameObject with the OrderMenuManager which is displaying this customer.
+    public GameObject gameManager;          //The object with the game managment scripts attached. Specifically needs OrderClass on the object.
+    public GameObject menuManager;                 //The GameObject with the OrderMenuManager which is displaying this customer.
     [SerializeField]
     int slot;                               //The slot on the menu that this customer occupies.
 
@@ -40,6 +41,6 @@ public class CustomerScript : MonoBehaviour
 
     void makeOrder()
     {
-        print("Made an order.");
+        gameManager.GetComponent<OrderClass>().selectRecipe(0, menuManager.GetComponent<OrderMenuManager>(), slot);
     }
 }

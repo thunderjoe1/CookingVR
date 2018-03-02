@@ -30,7 +30,7 @@ public class OrderMenuManager : MonoBehaviour
     {
         if(customer <= orderScreen.Count && customer >= 0)
         {
-            orderScreen[customer].GetComponent<Text>().text = input;
+            orderScreen[customer].transform.GetChild(0).GetComponent<Text>().text = input;
         } else
         {
             Debug.Log("Attempted to add a customer to a screen slot that doesn't exist.");
