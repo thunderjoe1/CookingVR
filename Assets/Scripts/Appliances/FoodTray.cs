@@ -16,5 +16,38 @@ using UnityEngine;
 
 public class FoodTray : MonoBehaviour
 {
+	[SerializeField]
+	int order;					//The customer's slot number in the OrderMenuManager.
+	[SerializeField]
+	bool ticket = false;		//Bool is true if a ticket is on the tray. False otherwise.
+	[SerializeField]
+	List<GameObject> foods;		//The list of foods currently on the tray.
 
+	void Awake ()
+	{
+		foods = new List<GameObject> ();
+	}
+
+	void OnTriggerEnter (Collider col)
+	{
+		if (col.gameObject.GetComponent<foodClass>()) 
+		{
+			foods.Add (col.gameObject);
+		} else if (col.gameObject.GetComponent<OrderTicket>()) 
+		{
+			order = col.gameObject.GetComponent<OrderTicket> ().orderNumber ();
+			ticket = true;
+		}
+	}
+
+	void OnTriggerExit (Collider col)
+	{
+		if (col.gameObject.GetComponent<foodClass>())
+		{
+			foods.Remove (col.gameObject);
+		}else if(col.gameObject.GetComponent<OrderTicket>())
+		{
+			ticket = false;
+		}
+	}
 }
