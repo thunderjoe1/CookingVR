@@ -13,6 +13,6 @@ public class CollisionSound : MonoBehaviour
         temp = Instantiate(soundMaker, col.transform.position, Quaternion.identity);
         temp.GetComponent<AudioSource>().clip = collisionSound;
         temp.GetComponent<AudioSource>().Play();
-        Destroy(gameObject, 1f);
+		Destroy(temp, 1f);
     }
 }
