@@ -15,4 +15,36 @@ using UnityEngine;
 
 public class DeliveryTable : MonoBehaviour
 {
+	public GameObject gameManager;
+	public CustomerManager customerManager;
+	OrderClass orderClass;
+
+	void Awake()
+	{
+		if (gameManager.GetComponent<OrderClass> ()) 
+		{
+			orderClass = gameManager.GetComponent<OrderClass> ();
+		} else 
+		{
+			print ("Game managers is missing an OrderClass.");
+		}
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if(col.gameObject.GetComponent<FoodTray>())
+		{
+			FoodTray tray = col.gameObject.GetComponent<FoodTray> ();
+			if (tray.ticket) 
+			{
+				for (int i = 0; i > tray.foods; i++)
+				{
+					if (tray.foods[i].GetComponent<customerManager.>()) 
+					{
+						
+					}
+				}
+			}
+		}
+	}
 }

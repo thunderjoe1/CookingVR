@@ -17,14 +17,15 @@ using UnityEngine;
 public class FoodTray : MonoBehaviour
 {
 	[SerializeField]
-	int order;					//The customer's slot number in the OrderMenuManager.
+	public int order { get; protected set; }					//The customer's slot number in the OrderMenuManager.
 	[SerializeField]
-	bool ticket = false;		//Bool is true if a ticket is on the tray. False otherwise.
+	public bool ticket { get; protected set;}					//Bool is true if a ticket is on the tray. False otherwise.
 	[SerializeField]
-	List<GameObject> foods;		//The list of foods currently on the tray.
+	public List<GameObject> foods { get; protected set; }		//The list of foods currently on the tray.
 
 	void Awake ()
 	{
+		ticket = false;
 		foods = new List<GameObject> ();
 	}
 
