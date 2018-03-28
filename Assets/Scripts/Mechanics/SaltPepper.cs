@@ -18,6 +18,9 @@ public class SaltPepper : MonoBehaviour {
 	ParticleSystem myParticles;							//Reference to the particle system attached to this game object
 	public seasonType mySeasonType;
 	public float seasonValue;
+	public GameObject handleReference;
+	float pastCrankValue = 0;
+	float currentCrankValue = 0;
 
 	void Start () {
 		//Set the particle system reference and make sure it's off at start
@@ -27,11 +30,8 @@ public class SaltPepper : MonoBehaviour {
 
 	void Update () {
 		//Check to see if the object is upside down. If it isn't, stop the particle system. If it is, let it play
-		if (Vector3.Dot(transform.up, Vector3.down) < 0.3f) {
-			myParticles.Stop ();
-		} else {
-			myParticles.Play ();
-		}
+
+		DetectCrank ();
 	}
 
 	//Runs whenever a particle collides with an object
@@ -45,6 +45,16 @@ public class SaltPepper : MonoBehaviour {
 				ISeasonable seasonable = (ISeasonable)mb;
 				seasonable.Season(mySeasonType, seasonValue);
 			}
+		}
+	}
+
+	void DetectCrank () {
+		currentCrankValue = handleReference.transform.localRotation.y;
+
+		if (currentCrankValue >= pastCrankValue + .6f || currentCrankValue <= pastCrankValue - .6f) {
+			pastCrankValue = currentCrankValue;
+			myParticles.Emit (10);
+			print ("pepper that shit");
 		}
 	}
 }
