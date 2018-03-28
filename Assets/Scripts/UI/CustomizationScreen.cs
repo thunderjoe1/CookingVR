@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CustomizationScreen : MonoBehaviour {
 
+	public GameObject menuPanel;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +17,12 @@ public class CustomizationScreen : MonoBehaviour {
 	}
 
 	public void OpenOrderMenu () {
-
+		foreach (GameObject menu in RoomController.Instance.menuPanels) {
+			menu.SetActive (false);
+			if (menu == menuPanel) {
+				menuPanel.SetActive (true);
+			}
+		}
 	}
 
 	public void OrderObject () {

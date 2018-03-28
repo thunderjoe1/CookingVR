@@ -275,3 +275,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectReference: {fileID: 1419108060879506}
   mySize: 2
+  myObjectName: 

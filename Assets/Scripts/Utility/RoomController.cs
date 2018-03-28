@@ -7,6 +7,7 @@ public class RoomController : MonoBehaviour {
 	public static RoomController Instance { get; protected set; }
 
 	public List<GameObject> ghostList = new List<GameObject> ();
+	public GameObject[] menuPanels;
 
 
 	void Awake () {

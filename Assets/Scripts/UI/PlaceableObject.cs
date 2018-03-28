@@ -44,9 +44,20 @@ public class PlaceableObject : MonoBehaviour {
 		if (NVRReference.IsAttached == true) {
 			foreach (GameObject ghost in RoomController.Instance.ghostList) {
 				if (ghost.name == mySize + " Object Space") {
-					ghost.GetComponentInChildren<MeshFilter> ().mesh = objectReference.GetComponent<MeshFilter> ().mesh;
-
+					ghost.SetActive (true);
+					foreach (Transform child in ghost.transform) {
+						if (child.gameObject.name == myObjectName + " Ghost") {
+							child.gameObject.SetActive (true);
+						} else {
+							child.gameObject.SetActive (false);
+							print (child.gameObject.name);
+						}
+					}
 				}
+			}
+		} else {
+			foreach (GameObject ghost in RoomController.Instance.ghostList) {
+				ghost.SetActive (false);
 			}
 		}
 	}

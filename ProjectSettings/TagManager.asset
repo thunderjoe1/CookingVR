@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Object Space
+  - Spawn Point
+  - Object
   layers:
   - Default
   - TransparentFX
