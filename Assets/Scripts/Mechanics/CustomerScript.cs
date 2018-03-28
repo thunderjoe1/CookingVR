@@ -15,10 +15,11 @@ using UnityEngine;
 
 public class CustomerScript : MonoBehaviour
 {
-    public GameObject gameManager;          //The object with the game managment scripts attached. Specifically needs OrderClass on the object.
-    public GameObject menuManager;                 //The GameObject with the OrderMenuManager which is displaying this customer.
+    public GameObject gameManager;		         	//The object with the game managment scripts attached. Specifically needs OrderClass on the object.
+    public GameObject menuManager;                 	//The GameObject with the OrderMenuManager which is displaying this customer.
+	public GameObject myFood;						//The food this customer orders.
     [SerializeField]
-    int slot;                               //The slot on the menu that this customer occupies.
+    int slot;      			                        //The slot on the menu that this customer occupies.
 
     /*********************************
     Function Name: CustomerScript
@@ -39,8 +40,8 @@ public class CustomerScript : MonoBehaviour
         makeOrder();
     }
 
-    void makeOrder()
+	void makeOrder()
     {
-        gameManager.GetComponent<OrderClass>().selectRecipe(0, menuManager.GetComponent<OrderMenuManager>(), slot);
+		myFood = gameManager.GetComponent<OrderClass>().selectRecipe(0, menuManager.GetComponent<OrderMenuManager>(), slot);
     }
 }

@@ -17,27 +17,27 @@ using UnityEngine;
 public class CustomerManager : MonoBehaviour
 {
     [SerializeField]
-    float difficulty;                                               //Average number of seconds between customers arriving. A lower number is HARDER.
+    float difficulty;                                               		//Average number of seconds between customers arriving. A lower number is HARDER.
     [SerializeField]
-    float duration;                                                 //Duration of the workday in seconds.
-    List<string> rushNames = new List<string>();                    //Name of rushes that should occur this day in the order they occur.
-    List<float> rushStarts = new List<float>();                     //Start time in seconds of each rush in the order they occur.
-    List<float> rushEnds = new List<float>();                       //End time in seconds of each rush in the order they occur.
-    List<float> rushDifficulty = new List<float>();                 //The difficulty of each rush in the order that they occur. This is a multiplier so a difficulty of 0.5 makes customers arrive twice as fast.
-    int rushNumber = 0;                                             //The index number of the next/current rush.
-    bool rushActive = false;                                         //A bool that is true while a rush is happening.
+    float duration;                                                 		//Duration of the workday in seconds.
+    List<string> rushNames = new List<string>();                    		//Name of rushes that should occur this day in the order they occur.
+    List<float> rushStarts = new List<float>();                     		//Start time in seconds of each rush in the order they occur.
+    List<float> rushEnds = new List<float>();                       		//End time in seconds of each rush in the order they occur.
+    List<float> rushDifficulty = new List<float>();                 		//The difficulty of each rush in the order that they occur. This is a multiplier so a difficulty of 0.5 makes customers arrive twice as fast.
+    int rushNumber = 0;                                             		//The index number of the next/current rush.
+    bool rushActive = false;                                         		//A bool that is true while a rush is happening.
     [SerializeField]
-    float time;                                                     //How long this script has been running.
+    float time;                                                     		//How long this script has been running.
     [SerializeField]
-    float timeLast;                                                 //Time in seconds that the last customer arrived.
+    float timeLast;                                                 		//Time in seconds that the last customer arrived.
     [SerializeField]
-    float timeNext;                                                 //Time in seconds when the next customer arrives.
+    float timeNext;                                                 		//Time in seconds when the next customer arrives.
     [SerializeField]
-    List<bool> customerSlot = new List<bool>();                     //List of customer slots able to be used this level.
+    List<bool> customerSlot = new List<bool>();                     		//List of customer slots able to be used this level.
     [SerializeField]
-    List<CustomerScript> customers = new List<CustomerScript>();    //List of customers currently in the store.
-    public GameObject menuManager;                                  //The GameObject that manages the order menu in the scene. Needs to be fed to the customers as they spawn.
-    public GameObject gameManager;                                  //The GameObject that contains the game managers. Most importantly the OrderClass for the level.
+    public List<CustomerScript> customers = new List<CustomerScript>();    	//List of customers currently in the store.
+    public GameObject menuManager;                                 		 	//The GameObject that manages the order menu in the scene. Needs to be fed to the customers as they spawn.
+    public GameObject gameManager;                                  		//The GameObject that contains the game managers. Most importantly the OrderClass for the level.
 
 
     /*********************************

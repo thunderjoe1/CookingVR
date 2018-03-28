@@ -21,7 +21,7 @@ public class FoodTray : MonoBehaviour
 	[SerializeField]
 	public bool ticket { get; protected set;}					//Bool is true if a ticket is on the tray. False otherwise.
 	[SerializeField]
-	public List<GameObject> foods { get; protected set; }		//The list of foods currently on the tray.
+	public List<GameObject> foods  { get; protected set; }		//The list of foods currently on the tray.
 
 	void Awake ()
 	{
