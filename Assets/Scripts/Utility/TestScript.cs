@@ -15,39 +15,28 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
-    public GameObject testFoodIn;
-    public GameObject testFoodOrder;
     public GameObject gameManager;
+    public GameObject menuManager;
     bool tested = false;
 
     void Start()
     {
-        StartLevel.addFood(0);
-        StartLevel.addFood(1);
         StartLevel.printMenu();
 
         testFunction();
+
+        CustomerManager temp = CustomerManager.addCustomerManager(gameObject, 30, 180, new List<string>(), new List<float>(), new List<float>(), new List<float>(), 6);
+        temp.enabled = true;
+        temp.menuManager = menuManager;
+        temp.gameManager = gameManager;
     }
 
     void Update ()
     {
-        if(tested == false && testFoodIn && testFoodOrder)
-        {
-            tested = true;
-            print(gameManager.GetComponent<OrderClass>().compareFoods(testFoodOrder.GetComponent<foodClass>(), testFoodIn.GetComponent<foodClass>()));
-        }
     }
 
     void testFunction ()
     {
-        testFoodOrder = gameManager.GetComponent<OrderClass>().selectRecipe(0);
-    }
-
-    void OnTriggerEnter (Collider col)
-    {
-        if(col.gameObject.GetComponent<foodClass>())
-        {
-            testFoodIn = col.gameObject;
-        }
+//        gameManager.GetComponent<OrderClass>().selectRecipe(0);
     }
 }

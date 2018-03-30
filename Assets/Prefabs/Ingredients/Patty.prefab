@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 65166997704812368}
   - component: {fileID: 114820996856046306}
   - component: {fileID: 114578961163901666}
+  - component: {fileID: 114043171860111480}
   m_Layer: 0
   m_Name: Patty
   m_TagString: Untagged
@@ -229,6 +230,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114043171860111480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1855356243480800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20957b25a2194f54fbf3749d9e0de9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundMaker: {fileID: 1120867379364908, guid: 036411f1c6c7cfe4fa56ff7fecdf0a9e, type: 2}
+  collisionSound: {fileID: 8300000, guid: d74875dfe5e546544abee7e8bbcad490, type: 3}
 --- !u!114 &114103618233785490
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ApplianceNode : MonoBehaviour {
+public class ApplianceNode : MonoBehaviour 
+{
 
 	public GameObject[] appliances;
 	Text applianceNameText;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 	}
 }
