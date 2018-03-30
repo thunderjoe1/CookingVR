@@ -72,4 +72,4 @@ public class Structs : MonoBehaviour
 public enum cookingType { blank, cooking, baking, frying};	//Blank is a placeholder enum. If you ever find it during runtime, it is an error.
 public enum seasonType { blank, salt, pepper } //Blank is a placeholder enum. If you ever find it during runtime, it is an error.
 
-public enum applianceSize {small, medium, large};
+public enum applianceSize {Small, Medium, Large};
