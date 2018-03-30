@@ -19,13 +19,12 @@ public class FoodTray : MonoBehaviour
 	[SerializeField]
 	public int order { get; protected set; }					//The customer's slot number in the OrderMenuManager.
 	[SerializeField]
-	public bool ticket { get; protected set;}					//Bool is true if a ticket is on the tray. False otherwise.
+	public GameObject ticket; /*{ get; protected set;}*/				//GameObject of the ticket on the tray. Null if there is no ticket.
 	[SerializeField]
 	public List<GameObject> foods  { get; protected set; }		//The list of foods currently on the tray.
 
 	void Awake ()
 	{
-		ticket = false;
 		foods = new List<GameObject> ();
 	}
 
@@ -37,7 +36,7 @@ public class FoodTray : MonoBehaviour
 		} else if (col.gameObject.GetComponent<OrderTicket>()) 
 		{
 			order = col.gameObject.GetComponent<OrderTicket> ().orderNumber ();
-			ticket = true;
+			ticket = col.gameObject;
 		}
 	}
 
@@ -48,7 +47,7 @@ public class FoodTray : MonoBehaviour
 			foods.Remove (col.gameObject);
 		}else if(col.gameObject.GetComponent<OrderTicket>())
 		{
-			ticket = false;
+			ticket = null;
 		}
 	}
 }

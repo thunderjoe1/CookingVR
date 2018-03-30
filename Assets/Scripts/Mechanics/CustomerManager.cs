@@ -33,7 +33,7 @@ public class CustomerManager : MonoBehaviour
     [SerializeField]
     float timeNext;                                                 		//Time in seconds when the next customer arrives.
     [SerializeField]
-    List<bool> customerSlot = new List<bool>();                     		//List of customer slots able to be used this level.
+    public List<bool> customerSlot = new List<bool>();                     		//List of customer slots able to be used this level.
     [SerializeField]
     public List<CustomerScript> customers = new List<CustomerScript>();    	//List of customers currently in the store.
     public GameObject menuManager;                                 		 	//The GameObject that manages the order menu in the scene. Needs to be fed to the customers as they spawn.

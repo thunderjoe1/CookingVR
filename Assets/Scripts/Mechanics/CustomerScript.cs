@@ -19,7 +19,7 @@ public class CustomerScript : MonoBehaviour
     public GameObject menuManager;                 	//The GameObject with the OrderMenuManager which is displaying this customer.
 	public GameObject myFood;						//The food this customer orders.
     [SerializeField]
-    int slot;      			                        //The slot on the menu that this customer occupies.
+	public int slot { get; private set; }    		//The slot on the menu that this customer occupies.
 
     /*********************************
     Function Name: CustomerScript
