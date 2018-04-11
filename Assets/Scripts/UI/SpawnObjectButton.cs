@@ -19,6 +19,9 @@ public class SpawnObjectButton : MonoBehaviour {
 	}
 
 	public void OrderObject () {
-		Instantiate (boxObject, spawnPoint.transform.position, boxObject.transform.rotation);
+		if (RestaurantManager.Instance.MoneyValue () >= RestaurantManager.Instance.MoneyValue () - cost) {
+			Instantiate (boxObject, spawnPoint.transform.position, boxObject.transform.rotation);
+			RestaurantManager.Instance.SubtractMoney (cost);
+		}
 	}
 }

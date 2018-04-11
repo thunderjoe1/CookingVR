@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundMaker: {fileID: 1120867379364908, guid: 036411f1c6c7cfe4fa56ff7fecdf0a9e, type: 2}
-  collisionSound: {fileID: 8300000, guid: d74875dfe5e546544abee7e8bbcad490, type: 3}
+  collisionSound: {fileID: 8300000, guid: 6c16ff05277872242b208b75e6464ddb, type: 3}
 --- !u!114 &114103618233785490
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -79,7 +79,11 @@ public class DeliveryTable : MonoBehaviour
 				customerManager.customerSlot [tray.order] = false;
 				Destroy (tray.ticket);
 				Destroy (tray.gameObject);
-				print ("Your score is: " + score);
+				if (score >= 0) {
+					RestaurantManager.Instance.AddMoney (Mathf.FloorToInt(score));
+				} else if (score < 0) {
+					RestaurantManager.Instance.SubtractMoney (5);
+				}
 			}
 		}
 	}

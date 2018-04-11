@@ -5,7 +5,7 @@ using UnityEngine;
 public class StoveTop : MonoBehaviour
 {
 	private cookingType myCookType = cookingType.cooking;
-	public float heatValue;
+	float heatValue = 5;
 
     void OnTriggerStay(Collider item)
     {

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65965861442914772}
   - component: {fileID: 114199093973677546}
   - component: {fileID: 114894904223824458}
+  - component: {fileID: 114634450017535532}
   m_Layer: 0
   m_Name: Top Bun
   m_TagString: Untagged
@@ -377,6 +378,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114634450017535532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003490046170866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20957b25a2194f54fbf3749d9e0de9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundMaker: {fileID: 1120867379364908, guid: 036411f1c6c7cfe4fa56ff7fecdf0a9e, type: 2}
+  collisionSound: {fileID: 8300000, guid: ee8741ef3d2eb7044a4e111345ada9e6, type: 3}
 --- !u!114 &114786934508445264
 MonoBehaviour:
   m_ObjectHideFlags: 1

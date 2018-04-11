@@ -10,13 +10,17 @@ public class PlaceableObject : MonoBehaviour {
 
 	Transform currentSpace;
 	MeshRenderer myRender;
+	BoxCollider myCollider;
+	AudioSource mySound;
 	NewtonVR.NVRInteractableItem NVRReference;
 	bool isPlaced;
 
 	// Use this for initialization
 	void Start () {
 		myRender = GetComponent<MeshRenderer> ();
+		myCollider = GetComponent<BoxCollider> ();
 		NVRReference = GetComponent<NewtonVR.NVRInteractableItem> ();
+		mySound = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -30,12 +34,12 @@ public class PlaceableObject : MonoBehaviour {
 			if (GetComponent<NewtonVR.NVRInteractableItem> ().IsAttached == false) {
 				transform.position = currentSpace.transform.position;
 				transform.rotation = currentSpace.transform.rotation;
+				mySound.Play ();
 				myRender.enabled = false;
 				objectReference.SetActive (true);
 				GetComponent<Rigidbody> ().isKinematic = true;
 				currentSpace.gameObject.SetActive (false);
 				isPlaced = true;
-				NVRReference.CanAttach = false;
 			}
 		}
 	}
@@ -48,6 +52,7 @@ public class PlaceableObject : MonoBehaviour {
 					foreach (Transform child in ghost.transform) {
 						if (child.gameObject.name == myObjectName + " Ghost") {
 							child.gameObject.SetActive (true);
+							print (myObjectName);
 						} else {
 							child.gameObject.SetActive (false);
 							print (child.gameObject.name);
@@ -73,5 +78,10 @@ public class PlaceableObject : MonoBehaviour {
 
 	void OnTriggerExit(Collider coll) {
 		currentSpace = null;
+		if (isPlaced == true) {
+			myCollider.enabled = false;
+			Destroy (GetComponent<Rigidbody> ());
+			NVRReference.enabled = false;
+		}
 	}
 }
