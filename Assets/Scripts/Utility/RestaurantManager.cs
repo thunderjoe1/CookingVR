@@ -17,6 +17,7 @@ public class RestaurantManager : MonoBehaviour {
 		} else {
 			Instance = this;
 		}
+		money = 500;
 	}
 	
 	// Update is called once per frame
