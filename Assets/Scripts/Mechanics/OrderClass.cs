@@ -318,6 +318,6 @@ public class OrderClass : MonoBehaviour
             print("i.count = " + tempi.Count);
             print("Score = " + score);
         }
-        return ((score/maxScore));
+        return ((score));
     }
 }

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 65891558769646710}
   - component: {fileID: 114348833814646398}
   - component: {fileID: 114168056143131822}
+  - component: {fileID: 82040788324235700}
   m_Layer: 0
   m_Name: Tomato Delivery
   m_TagString: Untagged
@@ -328,6 +329,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 48.654144, y: 50.268806, z: 48.654144}
   m_Center: {x: 0, y: 0.8073311, z: 0}
+--- !u!82 &82040788324235700
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599341894669322}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f3b136dde266d2343b788eeaa11b9d47, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.631
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95434572183482684
 Animator:
   serializedVersion: 3
@@ -375,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectReference: {fileID: 1125989070386126}
   mySize: 0
-  myObjectName: 
+  myObjectName: FoodDelivery
 --- !u!114 &114182072718969854
 MonoBehaviour:
   m_ObjectHideFlags: 1

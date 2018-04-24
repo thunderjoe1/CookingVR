@@ -25,6 +25,9 @@ public class patty : ingredientClass
 		seasonList.Add (new Structs.seasoned (seasonType.salt, 0, 5, 10));
     }
 
+	void Update () {
+	}
+
 	override public void Heat(cookingType cookType, float heatPerSecond)
 	{
 		bool hasFound = false;		//Temp bool to determine if the cooktype has been found in the list or if a new one needs to be made

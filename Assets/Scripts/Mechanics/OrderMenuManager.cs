@@ -24,13 +24,13 @@ public class OrderMenuManager : MonoBehaviour
     Function Name: changeText
     Functions Inputs: int index number of customer slot to be changed, string text to change text to.
     Function Returns: nothing
-    Description and Use: Use this to directly change the 
+    Description and Use: Use this to directly change the text
     ***********************************/
     public void changeText (int customer, string input)
     {
         if(customer <= orderScreen.Count && customer >= 0)
         {
-            orderScreen[customer].transform.GetChild(0).GetComponent<Text>().text = input;
+            orderScreen[customer].transform.GetChild(1).GetComponent<Text>().text = input;
         } else
         {
             Debug.Log("Attempted to add a customer to a screen slot that doesn't exist.");
@@ -47,4 +47,10 @@ public class OrderMenuManager : MonoBehaviour
     {
 
     }
+
+	public void changeBar (int customer, float timer) {
+
+		orderScreen[customer].transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2 (Mathf.Lerp(70f, 1940f, timer/90f), 336.2f);
+
+	}
 }

@@ -7,6 +7,7 @@ TagManager:
   - Object Space
   - Spawn Point
   - Object
+  - RoomController
   layers:
   - Default
   - TransparentFX

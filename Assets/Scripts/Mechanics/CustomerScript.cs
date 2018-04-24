@@ -20,6 +20,7 @@ public class CustomerScript : MonoBehaviour
 	public GameObject myFood;						//The food this customer orders.
     [SerializeField]
 	public int slot { get; private set; }    		//The slot on the menu that this customer occupies.
+	float time;										//The time in seconds this customer has existed.
 
     /*********************************
     Function Name: CustomerScript
@@ -33,12 +34,28 @@ public class CustomerScript : MonoBehaviour
         temp.menuManager = menu;
         temp.slot = slotNum;
         return temp;
+
     }
 
     void Start()
     {
         makeOrder();
+		time = 0;
     }
+
+	void Update()
+	{
+		time += Time.deltaTime;
+		menuManager.GetComponent<OrderMenuManager> ().changeBar (slot, time);
+		if(time >= 600)
+		{
+			menuManager.GetComponent<OrderMenuManager> ().changeText (slot, "");
+			Destroy(myFood);
+			gameManager.GetComponent<CustomerManager>().customers.Remove (this);
+			gameManager.GetComponent<CustomerManager>().customerSlot [slot] = false;
+			Destroy (this);
+		}
+	}
 
 	void makeOrder()
     {

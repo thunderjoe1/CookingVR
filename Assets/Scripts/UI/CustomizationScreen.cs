@@ -17,7 +17,7 @@ public class CustomizationScreen : MonoBehaviour {
 	}
 
 	public void OpenOrderMenu () {
-		foreach (GameObject menu in RoomController.Instance.menuPanels) {
+		foreach (GameObject menu in GameObject.FindGameObjectWithTag("RoomController").GetComponent<RoomController>().menuPanels) {
 			menu.SetActive (false);
 			if (menu == menuPanel) {
 				menuPanel.SetActive (true);
