@@ -47,7 +47,7 @@ public class CustomerScript : MonoBehaviour
 	{
 		time += Time.deltaTime;
 		menuManager.GetComponent<OrderMenuManager> ().changeBar (slot, time);
-		if(time >= 90)
+		if(time >= 600)
 		{
 			menuManager.GetComponent<OrderMenuManager> ().changeText (slot, "");
 			Destroy(myFood);
