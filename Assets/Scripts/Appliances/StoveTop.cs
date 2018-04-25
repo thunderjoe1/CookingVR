@@ -6,6 +6,11 @@ public class StoveTop : MonoBehaviour
 {
 	private cookingType myCookType = cookingType.cooking;
 	float heatValue = 5;
+	AudioSource cookAudio;
+
+	void Start () {
+		cookAudio = GetComponent<AudioSource> ();
+	}
 
     void OnTriggerStay(Collider item)
     {
@@ -30,6 +35,7 @@ public class StoveTop : MonoBehaviour
 				i.myCanvasChild.SetActive (true);
 				i.myCanvasChild.GetComponent<ProgressBar>().currentCookType = myCookType;
 				i.isCooking = true;
+				cookAudio.Play ();
 			}
 		}
 	}
@@ -43,6 +49,7 @@ public class StoveTop : MonoBehaviour
 				ingredientClass i = (ingredientClass)mb;
 				i.myCanvasChild.SetActive (false);
 				i.isCooking = false;
+				cookAudio.Stop ();
 			}
 		}
 	}
