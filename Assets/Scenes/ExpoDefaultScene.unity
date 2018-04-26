@@ -4289,7 +4289,7 @@ Prefab:
     - target: {fileID: 224614546155199952, guid: ccd11c572b9104340ab646b5b4173d0c,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224490760933998156, guid: ccd11c572b9104340ab646b5b4173d0c,
         type: 2}
@@ -4304,7 +4304,7 @@ Prefab:
     - target: {fileID: 224379841438856316, guid: ccd11c572b9104340ab646b5b4173d0c,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224063384819702428, guid: ccd11c572b9104340ab646b5b4173d0c,
         type: 2}
@@ -5433,6 +5433,18 @@ Prefab:
       propertyPath: m_Text
       value: Beef Patties - $15
       objectReference: {fileID: 0}
+    - target: {fileID: 114488295742752410, guid: ccd11c572b9104340ab646b5b4173d0c,
+        type: 2}
+      propertyPath: boxObject
+      value: 
+      objectReference: {fileID: 1117941134191284, guid: 1a7b341a92e1e40468a423fe6b216a3b,
+        type: 2}
+    - target: {fileID: 114574466959866486, guid: ccd11c572b9104340ab646b5b4173d0c,
+        type: 2}
+      propertyPath: boxObject
+      value: 
+      objectReference: {fileID: 1247187210363538, guid: f2ba105f673d1d240ba74493cad85b70,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccd11c572b9104340ab646b5b4173d0c, type: 2}
   m_IsPrefabParent: 0
