@@ -94,7 +94,7 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<patty>()as patty);
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a burger with a cheese.");
+                menu.changeText(slot, "I want a burger with cheese.");
                 return (g);
             case 1:
                 bc = g.GetComponent<burgerClass>();
@@ -103,7 +103,7 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<lettuce>() as lettuce);
                 bc.addIngredientClass(g.AddComponent<tomatoSlice>() as tomatoSlice);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a burger with everything.");
+                menu.changeText(slot, "I want a burger with cheese, lettuce, and tomatos.");
                 return (g);
             case 2:
                 bc = g.GetComponent<burgerClass>();
@@ -120,13 +120,13 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<patty>() as patty);
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a double cheeseburger.");
+                menu.changeText(slot, "I want a burger with two patties and two slices of cheese.");
                 return (g);
             case 4:
                 bc = g.GetComponent<burgerClass>();
                 bc.addIngredientClass(g.AddComponent<patty>() as patty);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a burger no cheese.");
+                menu.changeText(slot, "I want a plain burger.");
                 return (g);
             default:
                 print("burgerRecipeChooser chose a recipe that doesn't exist");
@@ -225,26 +225,32 @@ public class OrderClass : MonoBehaviour
                     print(tempi[i].name);
                     if(tempi[i].name == "Cheese Slice(Clone)" || tempi[i].name == "Bottom Bun" || tempi[i].name == "Top Bun(Clone)" || tempi[i].name == "Lettuce Leaf(Clone)" || tempi[i].name == "Tomato Slice(Clone)")
                     {
-						List<Structs.cooked> temp = tempi[i].getCookedList();
-						bool isCooked = false;								//True if the food is cooked as opposed to being undercooked.
-						bool isOvercooked = false;							//True if the food is overcooked.
-
-						for (int n = 0; n < temp.Count; n++)
+						Structs.cooked temp = new Structs.cooked (cookingType.blank, 0, 0, 0);	//The type of cooking used to cook the ingredient the most.
+						List<Structs.cooked> templist = tempi[i].getCookedList();				//The list of ways that this ingredient was cooked.
+						bool isCooked = false;													//True if the food is cooked as opposed to being undercooked.
+						bool isOvercooked = false;												//True if the food is overcooked.
+						for (int n = 0; n < templist.Count; n++)
 						{
-							if(temp[n].value <= temp[n].max)
-							{
-								print("The " + tempi[i].name + " is undercooked. It was cooked via " + temp[n].cookType + ".");
-							}else if(temp[n].value > temp[n].max && temp[n].value < temp[n].max + 2)
-							{
-								isCooked = true;
-								print("The " + tempi[i].name + " is cooked. It was cooked via " + temp[n].cookType + ".");
-							}
-							else
-							{
-								isOvercooked = true;
-								print("The " + tempi[i].name + " is overcooked. It was cooked via " + temp[n].cookType + ".");
-							}
+							if (templist [n].value >= temp.value)
+								temp = templist [n];
 						}
+
+//						for (int n = 0; n < temp.Count; n++)
+//						{
+						if(temp.value <= temp.min)
+						{
+							print("The " + tempi[i].name + " is undercooked. It was cooked via " + temp.cookType + ".");
+						}else if(temp.value > temp.min && temp.value < temp.max + 2)
+						{
+							isCooked = true;
+							print("The " + tempi[i].name + " is cooked. It was cooked via " + temp.cookType + ".");
+						}
+						else
+						{
+							isOvercooked = true;
+							print("The " + tempi[i].name + " is overcooked. It was cooked via " + temp.cookType + ".");
+						}
+//						}
 						if(!isCooked && !isOvercooked)
 						{
 							score += 1;
@@ -266,30 +272,39 @@ public class OrderClass : MonoBehaviour
 						ingredientMatched = true;
                     } else if (tempi[i].name == "Patty(Clone)")
                     {
-						List<Structs.cooked> temp = tempi[i].getCookedList();
-						bool isCooked = false;								//True if the food is cooked as opposed to being undercooked.
-						bool isOvercooked = false;							//True if the food is overcooked.
+						Structs.cooked temp = new Structs.cooked(cookingType.blank,0,0,0);		//The type of cooking used to cook the ingredient the most.
+						List<Structs.cooked> templist = tempi[i].getCookedList();				//The list of ways that this ingredient was cooked.
+						bool isCooked = false;													//True if the food is cooked as opposed to being undercooked.
+						bool isOvercooked = false;												//True if the food is overcooked.
 
-						for (int n = 0; n < temp.Count; n++)
+						print ("Before:" + temp.value);
+						for (int n = 0; n < templist.Count; n++)
 						{
-							if(temp[n].value <= temp[n].max)
-							{
-								print("The " + tempi[i].name + " is undercooked. It was cooked via " + temp[n].cookType + ".");
-							}else if(temp[n].value > temp[n].max && temp[n].value < temp[n].max + 2)
-							{
-								isCooked = true;
-								print("The " + tempi[i].name + " is cooked. It was cooked via " + temp[n].cookType + ".");
-							}
-							else
-							{
-								isOvercooked = true;
-								score += (Mathf.Pow(((temp[n].max - temp[n].min) / (temp[n].value - temp[n].min)),2)*2)-1;
-								print("The " + tempi[i].name + " is overcooked. It was cooked via " + temp[n].cookType + ".");
-							}
+							if (templist [n].value >= temp.value)
+								temp = templist [n];
 						}
+						print ("After: " + temp.value);
+
+//						for (int n = 0; n < temp.Count; n++)
+//						{
+						if(temp.value <= temp.min)
+						{
+							print("The " + tempi[i].name + " is undercooked. It was cooked via " + temp.cookType + ".");
+						}else if(temp.value > temp.min && temp.value < temp.max + 2)
+						{
+							isCooked = true;
+							print("The " + tempi[i].name + " is cooked. It was cooked via " + temp.cookType + ".");
+						}
+						else
+						{
+							isOvercooked = true;
+							score += (Mathf.Pow(((temp.max - temp.min) / (temp.value - temp.min)),2)*2)-1;
+							print("The " + tempi[i].name + " is overcooked. It was cooked via " + temp.cookType + ".");
+						}
+//						}
 						if(!isCooked && !isOvercooked)
 						{
-							score += (Mathf.Pow((temp[0].value/temp[0].max),1/2)*-50)+1;
+							score += (Mathf.Pow((temp.value/temp.max),1/2)*-50)+1;
 							print("The " + tempi[i].name + " is undercooked.");
 						}else if(isCooked && !isOvercooked)
 						{
