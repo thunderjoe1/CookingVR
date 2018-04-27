@@ -87,7 +87,7 @@ public class OrderClass : MonoBehaviour
     public GameObject burgerRecipeChooser(GameObject g, OrderMenuManager menu, int slot)
     {
         burgerClass bc;
-        switch (Random.Range(0,5))
+        switch (Random.Range(0,6))
         {
             case 0:
                 bc = g.GetComponent<burgerClass>();
