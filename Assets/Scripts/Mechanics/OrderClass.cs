@@ -87,14 +87,14 @@ public class OrderClass : MonoBehaviour
     public GameObject burgerRecipeChooser(GameObject g, OrderMenuManager menu, int slot)
     {
         burgerClass bc;
-        switch (Random.Range(0,6))
+        switch (Random.Range(0,5))
         {
             case 0:
                 bc = g.GetComponent<burgerClass>();
                 bc.addIngredientClass(g.AddComponent<patty>()as patty);
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a burger with cheese.");
+				menu.changeImage(slot, menu.foodIcons[1]);
                 return (g);
             case 1:
                 bc = g.GetComponent<burgerClass>();
@@ -103,7 +103,7 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<lettuce>() as lettuce);
                 bc.addIngredientClass(g.AddComponent<tomatoSlice>() as tomatoSlice);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a burger with cheese, lettuce, and tomatos.");
+				menu.changeImage(slot, menu.foodIcons[2]);
                 return (g);
             case 2:
                 bc = g.GetComponent<burgerClass>();
@@ -111,7 +111,7 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<lettuce>() as lettuce);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a burger with cheese and lettuce.");
+				menu.changeImage(slot, menu.foodIcons[3]);
                 return (g);
             case 3:
                 bc = g.GetComponent<burgerClass>();
@@ -120,13 +120,13 @@ public class OrderClass : MonoBehaviour
                 bc.addIngredientClass(g.AddComponent<patty>() as patty);
                 bc.addIngredientClass(g.AddComponent<cheese>() as cheese);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a burger with two patties and two slices of cheese.");
+				menu.changeImage(slot, menu.foodIcons[4]);
                 return (g);
             case 4:
                 bc = g.GetComponent<burgerClass>();
                 bc.addIngredientClass(g.AddComponent<patty>() as patty);
                 bc.addIngredientClass(g.AddComponent<topBun>() as topBun);
-                menu.changeText(slot, "I want a plain burger.");
+				menu.changeImage(slot, menu.foodIcons[5]);
                 return (g);
             default:
                 print("burgerRecipeChooser chose a recipe that doesn't exist");

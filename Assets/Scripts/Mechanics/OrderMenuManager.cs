@@ -22,31 +22,21 @@ public class OrderMenuManager : MonoBehaviour
 
     /*********************************
     Function Name: changeText
-    Functions Inputs: int index number of customer slot to be changed, string text to change text to.
+    Functions Inputs: int slot the index number of the slot on the screen being changed, Sprite image to replace that slot with.
     Function Returns: nothing
-    Description and Use: Use this to directly change the text
+    Description and Use: Use this to directly change the image of an order menu slot on the screen in game.
     ***********************************/
-    public void changeText (int customer, string input)
+	public void changeImage (int slot, Sprite image)
     {
-        if(customer <= orderScreen.Count && customer >= 0)
+		if(slot <= orderScreen.Count && slot >= 0)
         {
-            orderScreen[customer].transform.GetChild(1).GetComponent<Text>().text = input;
+			orderScreen[slot].GetComponent<Image>().sprite = image;
         } else
         {
             Debug.Log("Attempted to add a customer to a screen slot that doesn't exist.");
         }
     }
 
-    /*********************************
-    Function Name: addImage
-    Functions Inputs: sprite the image to be added to the order.
-    Function Returns: nothing
-    Description and Use: Adds an image to the end of the list of images on the order.
-    ***********************************/
-    public void addImage(Sprite image)
-    {
-
-    }
 
 	public void changeBar (int customer, float timer) {
 

@@ -71,7 +71,7 @@ public class DeliveryTable : MonoBehaviour
 				{
 					Destroy (tray.foods[i]);
 				}
-				orderMenu.GetComponent<OrderMenuManager> ().changeText (tray.order, "");
+				orderMenu.GetComponent<OrderMenuManager> ().changeImage(tray.order, orderMenu.GetComponent<OrderMenuManager> ().foodIcons[0]);
 				CustomerScript temp = customerManager.customers [tray.order];
 				Destroy(temp.myFood);
 				customerManager.customers.Remove (temp);

@@ -13,6 +13,7 @@ Last Edit Description:
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomerManager : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class CustomerManager : MonoBehaviour
     [SerializeField]
     public List<CustomerScript> customers = new List<CustomerScript>();    	//List of customers currently in the store.
     public GameObject menuManager;                                 		 	//The GameObject that manages the order menu in the scene. Needs to be fed to the customers as they spawn.
+	public OrderMenuManager orderMenuManager;								//The script attached to the above menumanager which manages the order screen in the game.
     public GameObject gameManager;                                  		//The GameObject that contains the game managers. Most importantly the OrderClass for the level.
 
 
@@ -46,15 +48,11 @@ public class CustomerManager : MonoBehaviour
     Function Returns: the CustomerManager added by the function.
     Description and Use: Used to add a CustomerManager to an object while defining starting values.
     ***********************************/
-    static public CustomerManager addCustomerManager(GameObject obj, float diff, float dur, List<string> names, List<float> starts, List<float> ends, List<float> rDiff, int slots)
+    static public CustomerManager addCustomerManager(GameObject obj, float diff, float dur, int slots)
     {
         CustomerManager temp = obj.AddComponent<CustomerManager>();
         temp.difficulty = diff;
         temp.duration = dur;
-        temp.rushNames = names;
-        temp.rushStarts = starts;
-        temp.rushEnds = ends;
-        temp.rushDifficulty = rDiff;
         for (int i = 0; i < slots; i++)
         {
             temp.customerSlot.Add(false);
@@ -123,4 +121,49 @@ public class CustomerManager : MonoBehaviour
         }
         timeNext = whenNextCustomer();
     }
+
+	/*********************************
+    Function Name: removeCustomer
+    Functions Inputs: int the slot of the customer to be removed.
+    Function Returns: nothing
+    Description and Use: Removes the customer given from the menu.
+    ***********************************/
+	public void removeCustomer(int slot)
+	{
+		orderMenuManager.changeImage (slot, menuManager.GetComponent<OrderMenuManager> ().foodIcons[0]);
+		Destroy(customers[slot].myFood);
+		customerSlot [slot] = false;
+		Destroy (customers[slot]);
+		customers.Remove (customers[slot]);
+		redrawList ();
+	}
+
+	/*********************************
+    Function Name: redrawList
+    Functions Inputs: nothing
+    Function Returns: nothing
+    Description and Use: Slides the customers to the leftmost positions.
+    ***********************************/
+	public void redrawList ()
+	{
+		for (int i = 0; i <= customers.Count; i++)
+		{
+			if(customerSlot[i])
+			{
+				for (int n = 0; n <= i;) 
+				{
+					if (customerSlot [n] == false) 
+					{
+						customers [i].slot = n;
+						customerSlot [n] = true;
+						customerSlot [i] = false;
+						orderMenuManager.changeImage (n, orderMenuManager.orderScreen[i].GetComponent<Image>().sprite);
+						orderMenuManager.changeImage (i, orderMenuManager.foodIcons[0]);
+						n += customers.Count;
+					}
+					n++;
+				}
+			}
+		}
+	}
 }
