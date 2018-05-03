@@ -47,7 +47,6 @@ public class CustomerScript : MonoBehaviour
 	{
 		time += Time.deltaTime;
 //		menuManager.GetComponent<OrderMenuManager> ().changeBar (slot, time);
-		print ("I'm running.");
 		if(time >= 10)
 		{
 			print ("Kill me.");

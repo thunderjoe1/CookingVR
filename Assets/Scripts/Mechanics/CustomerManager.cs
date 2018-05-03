@@ -150,16 +150,26 @@ public class CustomerManager : MonoBehaviour
 		{
 			if(customerSlot[i])
 			{
-				for (int n = 0; n <= i;) 
+				print ("Slot " + i + " has a customer.");
+				for (int n = 0; n < i;) 
 				{
 					if (customerSlot [n] == false) 
 					{
-						customers [i].slot = n;
-						customerSlot [n] = true;
-						customerSlot [i] = false;
-						orderMenuManager.changeImage (n, orderMenuManager.orderScreen[i].GetComponent<Image>().sprite);
-						orderMenuManager.changeImage (i, orderMenuManager.foodIcons[0]);
-						n += customers.Count;
+						print ("Slot " + n + " is open.");
+						for (int r = 0; r < customers.Count;)
+						{
+							if (customers[r].slot == i)
+							{
+								customers [r].slot = n;
+								customerSlot [n] = true;
+								customerSlot [i] = false;
+								orderMenuManager.changeImage (n, orderMenuManager.orderScreen[i].GetComponent<Image>().sprite);
+								orderMenuManager.changeImage (i, orderMenuManager.foodIcons[0]);
+								r += customers.Count;
+							}
+							r++;
+						}
+						n += customerSlot.Count;
 					}
 					n++;
 				}
