@@ -47,9 +47,8 @@ public class CustomerScript : MonoBehaviour
 	{
 		time += Time.deltaTime;
 //		menuManager.GetComponent<OrderMenuManager> ().changeBar (slot, time);
-		if(time >= 10)
+		if(time >= 180)
 		{
-			print ("Kill me.");
 			gameManager.GetComponent<CustomerManager> ().removeCustomer (slot);
 		}
 	}
