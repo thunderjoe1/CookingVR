@@ -19,7 +19,7 @@ public class lettuce : ingredientClass
 
     void Awake()
     {
-        posCor = new Vector3(0, 0.0003f, 0);
+        posCor = new Vector3(0, 0.0015f, 0);
 		cookedList.Add (new Structs.cooked(cookingType.cooking, 0, 10, 20));
     }						
 
