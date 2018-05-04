@@ -4,9 +4,9 @@ Author’s Name:  Thunder Clonch
 Created Date:   12/05/2017
 Description:    This is a script that generates an order for the player to make.
 
-Last Edited:  
-Last Editor: 
-Last Edit Description:
+Last Edited:  	05/01/2018
+Last Editor: 	Thunder Clonch
+Last Edit Description:	Working the customers into the new menu system.
 
 *******************************************************************************************************/
 using System.Collections;
@@ -19,7 +19,7 @@ public class CustomerScript : MonoBehaviour
     public GameObject menuManager;                 	//The GameObject with the OrderMenuManager which is displaying this customer.
 	public GameObject myFood;						//The food this customer orders.
     [SerializeField]
-	public int slot { get; private set; }    		//The slot on the menu that this customer occupies.
+	public int slot;					    		//The slot on the menu that this customer occupies.
 	float time;										//The time in seconds this customer has existed.
 
     /*********************************
@@ -46,14 +46,11 @@ public class CustomerScript : MonoBehaviour
 	void Update()
 	{
 		time += Time.deltaTime;
-		menuManager.GetComponent<OrderMenuManager> ().changeBar (slot, time);
-		if(time >= 600)
+//		menuManager.GetComponent<OrderMenuManager> ().changeBar (slot, time);
+		if(time >= 10)
 		{
-			menuManager.GetComponent<OrderMenuManager> ().changeText (slot, "");
-			Destroy(myFood);
-			gameManager.GetComponent<CustomerManager>().customers.Remove (this);
-			gameManager.GetComponent<CustomerManager>().customerSlot [slot] = false;
-			Destroy (this);
+			print ("Kill me.");
+			gameManager.GetComponent<CustomerManager> ().removeCustomer (slot);
 		}
 	}
 

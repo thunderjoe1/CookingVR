@@ -25,9 +25,10 @@ public class TestScript : MonoBehaviour
 
         testFunction();
 
-        CustomerManager temp = CustomerManager.addCustomerManager(gameObject, 30, 180, new List<string>(), new List<float>(), new List<float>(), new List<float>(), 6);
+        CustomerManager temp = CustomerManager.addCustomerManager(gameObject, 5, 180, 7);
         temp.enabled = true;
         temp.menuManager = menuManager;
+		temp.orderMenuManager = menuManager.GetComponent<OrderMenuManager>();
         temp.gameManager = gameManager;
     }
 
