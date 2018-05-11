@@ -1,4 +1,15 @@
-﻿using System.Collections;
+﻿/*******************************************************************************************************
+Class Name:                 StoveTop
+Author’s Name:              William Grey
+Created Date:               Couldn't tell you.
+Description:                Cooks ingredients that trigger with this object's collider. Shows their progress bars and makes them make cooking noises.
+
+Last Edited:                05/10/2018
+Last Editor:                Thunder Clonch
+Last Edit Description:      Making the stove play audio.
+
+*******************************************************************************************************/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +17,6 @@ public class StoveTop : MonoBehaviour
 {
 	private cookingType myCookType = cookingType.cooking;
 	float heatValue = 5;
-	AudioSource cookAudio;
-
-	void Start () {
-		cookAudio = GetComponent<AudioSource> ();
-	}
 
     void OnTriggerStay(Collider item)
     {
@@ -25,7 +31,8 @@ public class StoveTop : MonoBehaviour
         }
     }
 
-	void OnTriggerEnter (Collider item) {
+	void OnTriggerEnter (Collider item)
+    {
 		MonoBehaviour[] list = item.GetComponents<MonoBehaviour>();
 		foreach (MonoBehaviour mb in list)
 		{
@@ -35,12 +42,13 @@ public class StoveTop : MonoBehaviour
 				i.myCanvasChild.SetActive (true);
 				i.myCanvasChild.GetComponent<ProgressBar>().currentCookType = myCookType;
 				i.isCooking = true;
-				cookAudio.Play ();
+                i.gameObject.GetComponent<AudioSource>().Play();
 			}
 		}
 	}
 
-	void OnTriggerExit (Collider item) {
+	void OnTriggerExit (Collider item)
+    {
 		MonoBehaviour[] list = item.GetComponents<MonoBehaviour>();
 		foreach (MonoBehaviour mb in list)
 		{
@@ -49,7 +57,7 @@ public class StoveTop : MonoBehaviour
 				ingredientClass i = (ingredientClass)mb;
 				i.myCanvasChild.SetActive (false);
 				i.isCooking = false;
-				cookAudio.Stop ();
+                i.gameObject.GetComponent<AudioSource>().Stop();
 			}
 		}
 	}
