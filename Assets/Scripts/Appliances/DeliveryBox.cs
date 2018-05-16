@@ -48,7 +48,8 @@ public class DeliveryBox : MonoBehaviour
 			{
 				RestaurantManager.Instance.SubtractMoney (5);
 			}
-			print ("Score is: " + score);
+			ingredientClass[] ingredients = customerManager.customers[0].myFood.GetComponents<ingredientClass>();
+			print ("Score is: " + score + " out of " + (ingredients.Length + 1) + " or " + ((score/(ingredients.Length + 1)) * 100) + "%");
 		}
 	}
 }
