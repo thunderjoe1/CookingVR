@@ -24,7 +24,7 @@ public class DeliveryBox : MonoBehaviour
 	{
 		if (col.gameObject.GetComponent<foodClass> ()) 
 		{
-			if (gameManager.GetComponent<CustomerManager> ()) 
+			if (gameManager.GetComponent<CustomerManager> ())
 			{
 				customerManager = gameManager.GetComponent<CustomerManager> ();
 			} else 
@@ -40,16 +40,25 @@ public class DeliveryBox : MonoBehaviour
 			{
 				score += -5f;
 			}
+			ingredientClass[] ingredients = customerManager.customers[0].myFood.GetComponents<ingredientClass>();
 			customerManager.removeCustomer (0);
 			Destroy (col.gameObject);
-			if (score >= 0) {
+/*			if (score >= 0) {
 				RestaurantManager.Instance.AddMoney (Mathf.FloorToInt(score));
 			} else if (score < 0) 
 			{
 				RestaurantManager.Instance.SubtractMoney (5);
+			}*/
+			if (score/(ingredients.Length + 1) >= 1)
+			{
+				customerManager.menuManager.GetComponent<OrderMenuManager> ().customerResponse (0);
+			} else if (score/(ingredients.Length + 1) < 1 && score/(ingredients.Length + 1) > 0.5f)
+			{
+				customerManager.menuManager.GetComponent<OrderMenuManager> ().customerResponse (1);
+			} else
+			{
+				customerManager.menuManager.GetComponent<OrderMenuManager> ().customerResponse (2);
 			}
-			ingredientClass[] ingredients = customerManager.customers[0].myFood.GetComponents<ingredientClass>();
-			print ("Score is: " + score + " out of " + (ingredients.Length + 1) + " or " + ((score/(ingredients.Length + 1)) * 100) + "%");
 		}
 	}
 }

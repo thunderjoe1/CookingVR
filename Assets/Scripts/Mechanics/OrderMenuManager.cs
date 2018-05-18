@@ -20,6 +20,7 @@ public class OrderMenuManager : MonoBehaviour
     public List<Sprite> foodIcons = new List<Sprite>();					//All of the sprites for the different burger orders. This list must be in the same order as the list of possible orders inside of OrderClass.
 	public GameObject responseImage;									//The GameObject which contains the Image UI component which displays customer responses.
 	public List<Sprite> responseIcons = new List<Sprite>();				//All of the sprites for the different customer responses. This list must be in the same order as the possible inputs of the customerResponse function.
+	public List<AudioClip> responseAudio = new List<AudioClip>();		//All of the AudioClips for the different customer responses. This list must be in the same order as the possible inputs of the customerResponse function.
 
 
     /*********************************
@@ -49,7 +50,9 @@ public class OrderMenuManager : MonoBehaviour
 	{
 		responseImage.GetComponent<Image>().sprite = responseIcons[input];
 		responseImage.GetComponent<ResponseImage> ().time = 0;
+		responseImage.GetComponent<AudioSource> ().clip = responseAudio [input];
 		responseImage.SetActive (true);
+		responseImage.GetComponent<AudioSource> ().Play (0);
 	}
 
 	public void changeBar (int customer, float timer) {
