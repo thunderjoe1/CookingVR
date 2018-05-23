@@ -23,7 +23,7 @@ public class patty : ingredientClass
 
     void Awake ()
     {
-        posCor = new Vector3(0, 0.009f, 0);
+        posCor = new Vector3(0, 0.00987285f, 0);
 		cookedList.Add (new Structs.cooked(cookingType.cooking, 0, 50, 100));
 		seasonList.Add (new Structs.seasoned (seasonType.salt, 0, 5, 10));
         meshRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
