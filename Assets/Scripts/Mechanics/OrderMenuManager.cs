@@ -22,7 +22,6 @@ public class OrderMenuManager : MonoBehaviour
 	public List<Sprite> responseIcons = new List<Sprite>();				//All of the sprites for the different customer responses. This list must be in the same order as the possible inputs of the customerResponse function.
 	public List<AudioClip> responseAudio = new List<AudioClip>();		//All of the AudioClips for the different customer responses. This list must be in the same order as the possible inputs of the customerResponse function.
 
-
     /*********************************
     Function Name: changeText
     Functions Inputs: int slot the index number of the slot on the screen being changed, Sprite image to replace that slot with.
@@ -59,4 +58,6 @@ public class OrderMenuManager : MonoBehaviour
 		orderScreen[customer].transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2 (0f, Mathf.Lerp(0f, 0.775f, timer/60f));
 
 	}
+
+
 }

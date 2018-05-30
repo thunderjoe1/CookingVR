@@ -21,6 +21,7 @@ public class CustomerScript : MonoBehaviour
     [SerializeField]
 	public int slot;					    		//The slot on the menu that this customer occupies.
 	float time;										//The time in seconds this customer has existed.
+	public static float timeLimit;
 
     /*********************************
     Function Name: CustomerScript
@@ -47,7 +48,7 @@ public class CustomerScript : MonoBehaviour
 	{
 		time += Time.deltaTime;
 //		menuManager.GetComponent<OrderMenuManager> ().changeBar (slot, time);
-		if(time >= 60)
+		if(time >= timeLimit)
 		{
 			menuManager.GetComponent<OrderMenuManager> ().changeBar (0, slot);
 			gameManager.GetComponent<CustomerManager> ().removeCustomer (slot);
