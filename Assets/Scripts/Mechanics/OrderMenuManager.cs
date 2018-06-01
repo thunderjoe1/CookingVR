@@ -55,7 +55,7 @@ public class OrderMenuManager : MonoBehaviour
 	}
 
 	public void changeBar (int customer, float timer) {
-		orderScreen[customer].transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2 (0f, Mathf.Lerp(0f, 0.775f, timer/60f));
+		orderScreen[customer].transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2 (0f, Mathf.Lerp(0f, 0.775f, timer/CustomerScript.timeLimit));
 
 	}
 

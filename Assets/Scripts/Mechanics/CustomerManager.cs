@@ -18,7 +18,7 @@ using UnityEngine.UI;
 public class CustomerManager : MonoBehaviour
 {
     [SerializeField]
-    public static float difficulty;                                               		//Average number of seconds between customers arriving. A lower number is HARDER.
+    public static float difficulty = 15;                                    //Average number of seconds between customers arriving. A lower number is HARDER.
     [SerializeField]
     float duration;                                                 		//Duration of the workday in seconds.
     List<string> rushNames = new List<string>();                    		//Name of rushes that should occur this day in the order they occur.
@@ -64,7 +64,7 @@ public class CustomerManager : MonoBehaviour
     {
         time = 0;
         timeLast = 0;
-        timeNext = whenNextCustomer();
+		timeNext = whenNextCustomer ();
     }
 
     void Update()
