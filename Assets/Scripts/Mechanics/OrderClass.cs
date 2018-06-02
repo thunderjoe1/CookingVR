@@ -66,11 +66,7 @@ public class OrderClass : MonoBehaviour
         if(temp == "Burger")
         {
             return(burgerRecipeChooser(MasterFoodList.foodSpawner(n,new Vector3(100,100,100),new Vector3(0,0,0)), menu, slot));
-        }else if(temp == "Steak")
-        {
-            return(steakRecipeChooser(MasterFoodList.foodSpawner(n, new Vector3(100, 100, 100), new Vector3(0, 0, 0))));
-        }
-        else
+        } else
         {
             print("OrderClass chose a food that doesn't exist.");
             return (null);
@@ -130,28 +126,6 @@ public class OrderClass : MonoBehaviour
                 return (g);
             default:
                 print("burgerRecipeChooser chose a recipe that doesn't exist");
-                return (null);
-        }
-    }
-
-    /*********************************
-    Function Name: steakRecipeChooser
-    Functions Inputs: g GameObject of the food which is being used to build this recipie.
-    Function Returns: nothing
-    Description and Use: 
-
-    ***********************************/
-    public GameObject steakRecipeChooser(GameObject g)
-    {
-        switch (Random.Range(0, 1))
-        {
-            case 0:
-                steakClass sc = g.GetComponent<steakClass>();
-                sc.addIngredientClass(g.AddComponent<meatIngot>() as meatIngot);
-                print("I want a meat ingot please.");
-                return (g);
-            default:
-                print("steakRecipeChooser chose a recipe that doesn't exist");
                 return (null);
         }
     }
