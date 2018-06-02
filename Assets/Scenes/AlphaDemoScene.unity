@@ -175,21 +175,35 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
   m_PrefabInternal: {fileID: 2001153188}
---- !u!54 &19967848
-Rigidbody:
+--- !u!114 &19967849
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 19967845}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e8a839a7c5b7e4580c59e305fb5f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  color: {r: 0, g: 1, b: 0.08965492, a: 0}
+  thickness: 0.002
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
+--- !u!114 &19967850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 19967845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e742bddba995141b7388ea62515d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &40466459
 GameObject:
   m_ObjectHideFlags: 0
@@ -5303,6 +5317,8 @@ GameObject:
   - component: {fileID: 475663082}
   - component: {fileID: 475663081}
   - component: {fileID: 475663080}
+  - component: {fileID: 475663083}
+  - component: {fileID: 475663084}
   m_Layer: 5
   m_Name: Options Button
   m_TagString: Untagged
@@ -5349,7 +5365,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7647059, g: 0.78719723, b: 0.78719723, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5414,6 +5430,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 475663078}
+--- !u!114 &475663083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 475663078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b64903c2589f64ba619331f5178161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &475663084
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 475663078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 51.9, y: 12.82, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &486004688
 GameObject:
   m_ObjectHideFlags: 0
@@ -6989,6 +7028,8 @@ GameObject:
   - component: {fileID: 722823877}
   - component: {fileID: 722823876}
   - component: {fileID: 722823875}
+  - component: {fileID: 722823878}
+  - component: {fileID: 722823879}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -7035,7 +7076,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7941176, g: 0.7941176, b: 0.7941176, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -7100,6 +7141,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 722823873}
+--- !u!114 &722823878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722823873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b64903c2589f64ba619331f5178161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &722823879
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722823873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 51.9, y: 12.82, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &733527032 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d8cb5f37d135abb42a4bda4fe94da2de, type: 3}
@@ -8388,6 +8452,8 @@ GameObject:
   m_Component:
   - component: {fileID: 948082338}
   - component: {fileID: 948082339}
+  - component: {fileID: 948082340}
+  - component: {fileID: 948082341}
   m_Layer: 5
   m_Name: CookSpeedSlider
   m_TagString: Untagged
@@ -8475,6 +8541,29 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &948082340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 948082337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b64903c2589f64ba619331f5178161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &948082341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 948082337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 130.9, y: 17.6, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &957772113
 Prefab:
   m_ObjectHideFlags: 0
@@ -11235,25 +11324,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 30 s
---- !u!1 &1563952652 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
-  m_PrefabInternal: {fileID: 2001153188}
---- !u!54 &1563952655
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1563952652}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1581076939
 GameObject:
   m_ObjectHideFlags: 0
@@ -12342,6 +12412,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1792566782}
   - component: {fileID: 1792566783}
+  - component: {fileID: 1792566784}
+  - component: {fileID: 1792566785}
   m_Layer: 5
   m_Name: CustomerPatienceSlider
   m_TagString: Untagged
@@ -12429,6 +12501,29 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1792566784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792566781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b64903c2589f64ba619331f5178161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1792566785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792566781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 130.9, y: 17.6, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1794042876
 GameObject:
   m_ObjectHideFlags: 0
@@ -14199,6 +14294,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2075625374}
   - component: {fileID: 2075625375}
+  - component: {fileID: 2075625376}
+  - component: {fileID: 2075625377}
   m_Layer: 5
   m_Name: CustomerFrequencySlider
   m_TagString: Untagged
@@ -14286,6 +14383,29 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2075625376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075625373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b64903c2589f64ba619331f5178161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2075625377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075625373}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 130.9, y: 17.6, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2086957073
 GameObject:
   m_ObjectHideFlags: 0
@@ -14297,6 +14417,8 @@ GameObject:
   - component: {fileID: 2086957077}
   - component: {fileID: 2086957076}
   - component: {fileID: 2086957075}
+  - component: {fileID: 2086957078}
+  - component: {fileID: 2086957079}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -14343,7 +14465,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6764706, g: 0.7013408, b: 0.7013408, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -14408,6 +14530,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086957073}
+--- !u!114 &2086957078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086957073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b64903c2589f64ba619331f5178161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2086957079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086957073}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 51.9, y: 12.82, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2101309578
 Prefab:
   m_ObjectHideFlags: 0
