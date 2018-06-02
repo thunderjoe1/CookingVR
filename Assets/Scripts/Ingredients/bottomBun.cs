@@ -19,7 +19,7 @@ public class bottomBun : ingredientClass
 
 	void Awake ()
     {
-        posCor = new Vector3(0,0.006f,0);
+        posCor = new Vector3(0,0.0057963f,0);
 		Structs.cooked newCooked = new Structs.cooked (cookingType.cooking, 0, 10, 20);
 		cookedList.Add (newCooked);
     }

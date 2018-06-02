@@ -25,7 +25,7 @@ public class TestScript : MonoBehaviour
 
         testFunction();
 
-        CustomerManager temp = CustomerManager.addCustomerManager(gameObject, 5, 180, 7);
+        CustomerManager temp = CustomerManager.addCustomerManager(gameObject, 20, 180, 7);
         temp.enabled = true;
         temp.menuManager = menuManager;
 		temp.orderMenuManager = menuManager.GetComponent<OrderMenuManager>();

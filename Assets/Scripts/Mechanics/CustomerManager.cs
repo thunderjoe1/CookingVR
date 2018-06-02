@@ -18,7 +18,7 @@ using UnityEngine.UI;
 public class CustomerManager : MonoBehaviour
 {
     [SerializeField]
-    float difficulty;                                               		//Average number of seconds between customers arriving. A lower number is HARDER.
+    public static float difficulty = 15;                                    //Average number of seconds between customers arriving. A lower number is HARDER.
     [SerializeField]
     float duration;                                                 		//Duration of the workday in seconds.
     List<string> rushNames = new List<string>();                    		//Name of rushes that should occur this day in the order they occur.
@@ -51,7 +51,7 @@ public class CustomerManager : MonoBehaviour
     static public CustomerManager addCustomerManager(GameObject obj, float diff, float dur, int slots)
     {
         CustomerManager temp = obj.AddComponent<CustomerManager>();
-        temp.difficulty = diff;
+		CustomerManager.difficulty = diff;
         temp.duration = dur;
         for (int i = 0; i < slots; i++)
         {
@@ -64,7 +64,7 @@ public class CustomerManager : MonoBehaviour
     {
         time = 0;
         timeLast = 0;
-        timeNext = whenNextCustomer();
+		timeNext = whenNextCustomer ();
     }
 
     void Update()
@@ -150,12 +150,10 @@ public class CustomerManager : MonoBehaviour
 		{
 			if(customerSlot[i])
 			{
-				print ("Slot " + i + " has a customer.");
 				for (int n = 0; n < i;) 
 				{
 					if (customerSlot [n] == false) 
 					{
-						print ("Slot " + n + " is open.");
 						for (int r = 0; r < customers.Count;)
 						{
 							if (customers[r].slot == i)
@@ -163,7 +161,8 @@ public class CustomerManager : MonoBehaviour
 								customers [r].slot = n;
 								customerSlot [n] = true;
 								customerSlot [i] = false;
-								orderMenuManager.changeImage (n, orderMenuManager.orderScreen[i].GetComponent<Image>().sprite);
+								orderMenuManager.changeImage (n, orderMenuManager.orderScreen[i].transform.GetChild(1).GetComponent<Image>().sprite);
+								orderMenuManager.changeBar (i, 0);
 								orderMenuManager.changeImage (i, orderMenuManager.foodIcons[0]);
 								r += customers.Count;
 							}

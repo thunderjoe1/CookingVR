@@ -41,6 +41,7 @@ public class ProgressBar : MonoBehaviour {
 		//Control progress bar functionality
 		ProgressBarControl ();
 		CanvasBillboard ();
+		transform.position = transform.parent.position + new Vector3(0,0.15f,0);
 	}
 
 	/*********************************

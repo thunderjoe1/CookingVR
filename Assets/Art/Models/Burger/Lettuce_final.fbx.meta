@@ -6,9 +6,33 @@ ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Food_Lettuce_Ver01_Nuv_Ntext:pCube4
+    100004: Food_TopBun_Ver02_Nuv_Ntext:group
+    100006: Food_TopBun_Ver02_Nuv_Ntext:group1
+    100008: Food_TopBun_Ver02_Nuv_Ntext:group2
+    100010: Food_TopBun_Ver02_Nuv_Ntext:group3
+    100012: Food_TopBun_Ver02_Nuv_Ntext:pasted__group
+    100014: Food_TopBun_Ver02_Nuv_Ntext:pasted__group2
+    100016: Food_TopBun_Ver02_Nuv_Ntext:pCube1
+    100018: Food_TopBun_Ver02_Nuv_Ntext:pCube2
+    100020: Food_TopBun_Ver02_Nuv_Ntext:transform1
+    100022: Food_TopBun_Ver02_Nuv_Ntext:transform2
     400000: //RootNode
+    400002: Food_Lettuce_Ver01_Nuv_Ntext:pCube4
+    400004: Food_TopBun_Ver02_Nuv_Ntext:group
+    400006: Food_TopBun_Ver02_Nuv_Ntext:group1
+    400008: Food_TopBun_Ver02_Nuv_Ntext:group2
+    400010: Food_TopBun_Ver02_Nuv_Ntext:group3
+    400012: Food_TopBun_Ver02_Nuv_Ntext:pasted__group
+    400014: Food_TopBun_Ver02_Nuv_Ntext:pasted__group2
+    400016: Food_TopBun_Ver02_Nuv_Ntext:pCube1
+    400018: Food_TopBun_Ver02_Nuv_Ntext:pCube2
+    400020: Food_TopBun_Ver02_Nuv_Ntext:transform1
+    400022: Food_TopBun_Ver02_Nuv_Ntext:transform2
     2300000: //RootNode
+    2300002: Food_Lettuce_Ver01_Nuv_Ntext:pCube4
     3300000: //RootNode
+    3300002: Food_Lettuce_Ver01_Nuv_Ntext:pCube4
     4300000: Food_Lettuce_Ver01_Nuv_Ntext:pCube4
     9500000: //RootNode
   materials:

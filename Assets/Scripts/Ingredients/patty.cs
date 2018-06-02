@@ -17,15 +17,30 @@ public class patty : ingredientClass
 {
 	protected List<Structs.cooked> cookedList= new List<Structs.cooked> ();	
 	protected List<Structs.seasoned> seasonList = new List<Structs.seasoned>();
+    public List<Material> materialList = new List<Material>();
+    MeshRenderer meshRenderer;
+
 
     void Awake ()
     {
-        posCor = new Vector3(0, 0.009f, 0);
+        posCor = new Vector3(0, 0.00987285f, 0);
 		cookedList.Add (new Structs.cooked(cookingType.cooking, 0, 50, 100));
 		seasonList.Add (new Structs.seasoned (seasonType.salt, 0, 5, 10));
+        meshRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
     }
 
-	void Update () {
+	void Update ()
+    {
+        if(isCooking)
+        {
+            if (cookedList[0].value <= cookedList[0].min)
+            {
+                meshRenderer.material.SetFloat("_Blend", cookedList[0].value / cookedList[0].min);
+            }else if (cookedList[0].value >= cookedList[0].min && cookedList[0].value <= cookedList[0].max)
+            {
+                meshRenderer.material.color = Color.Lerp(Color.white, new Color(0.4f,0.4f,0.4f), (cookedList[0].value - 50) / (cookedList[0].max - 50));
+            }
+        }
 	}
 
 	override public void Heat(cookingType cookType, float heatPerSecond)

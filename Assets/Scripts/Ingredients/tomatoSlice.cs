@@ -20,7 +20,7 @@ public class tomatoSlice : ingredientClass
 
     void Awake()
     {
-        posCor = new Vector3(0, 0.0025f, 0);
+        posCor = new Vector3(0, 0.00187445f, 0);
 		cookedList.Add (new Structs.cooked(cookingType.cooking, 0, 2, 3));
     }
 		
