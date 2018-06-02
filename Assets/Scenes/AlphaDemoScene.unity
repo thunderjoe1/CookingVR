@@ -13675,6 +13675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bbc29404d5cef049a20db4ebd2912f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <money>k__BackingField: 0
   moneyText: {fileID: 0}
 --- !u!1 &1432313236
 GameObject:
@@ -14239,6 +14240,12 @@ MonoBehaviour:
   objectReference: {fileID: 0}
   mySize: 0
   myObjectName: FoodDelivery
+  currentSpace: {fileID: 0}
+  myRender: {fileID: 0}
+  myCollider: {fileID: 0}
+  mySound: {fileID: 0}
+  NVRReference: {fileID: 0}
+  isPlaced: 0
 --- !u!114 &1522984550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19847,6 +19854,12 @@ Prefab:
       propertyPath: optionsScreen
       value: 
       objectReference: {fileID: 1026956483}
+    - target: {fileID: 114837322045415270, guid: c44906ebcd68b3c498f3066fecaec1e7,
+        type: 2}
+      propertyPath: responseIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 811cb77468893d74a9cfe2caf6c601fb,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c44906ebcd68b3c498f3066fecaec1e7, type: 2}
   m_IsPrefabParent: 0
