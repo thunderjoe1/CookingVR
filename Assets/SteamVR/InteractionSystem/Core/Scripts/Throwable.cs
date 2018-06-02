@@ -35,7 +35,7 @@ namespace Valve.VR.InteractionSystem
 		public string[] attachEaseInAttachmentNames;
 
 		private VelocityEstimator velocityEstimator;
-		private bool attached = false;
+		public bool attached = false;
 		private float attachTime;
 		private Vector3 attachPosition;
 		private Quaternion attachRotation;
@@ -45,6 +45,8 @@ namespace Valve.VR.InteractionSystem
 		public UnityEvent onDetachFromHand;
 
 		public bool snapAttachEaseInCompleted = false;
+
+		public Hand hnd;
 
 
 		//-------------------------------------------------
@@ -201,6 +203,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void HandAttachedUpdate( Hand hand )
 		{
+			hnd = hand;
 			//Trigger got released
 			if ( !hand.GetStandardInteractionButton() )
 			{
@@ -253,6 +256,11 @@ namespace Valve.VR.InteractionSystem
 		{
 			gameObject.SetActive( false );
 			velocityEstimator.FinishEstimatingVelocity();
+		}
+
+		public void DetachNow(Hand hand)
+		{
+			hand.DetachObject( gameObject, restoreOriginalParent );
 		}
 	}
 }
