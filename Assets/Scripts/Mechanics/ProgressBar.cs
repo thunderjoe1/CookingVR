@@ -21,7 +21,7 @@ public class ProgressBar : MonoBehaviour {
 
 	Image progressSprite;													//Reference to the actual image component of the progress bar sprite
 
-	Canvas myCanvas;														//Reference to the canvas attached to the object
+	public Canvas myCanvas;														//Reference to the canvas attached to the object
 	ingredientClass myIngredientParent;										//Reference to the ingredient the canvas is attached to
 	float currentCookedValue;												//Reference to the current cooked value of the ingredient the canvas is attached to
 	float minimumCookedValue;												//Reference to the minimum cooked value of the ingredient the canvas is attached to

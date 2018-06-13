@@ -39,7 +39,6 @@ public class Structs : MonoBehaviour
 
 		public void heatMe(float heatPerSecond) {
 			value += heatPerSecond * Time.deltaTime;
-			print (heatPerSecond);
 		}
 	}
 

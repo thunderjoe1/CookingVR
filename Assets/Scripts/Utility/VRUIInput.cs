@@ -36,18 +36,9 @@ public class VRUIInput : MonoBehaviour
 	private void HandlePointerIn(object sender, PointerEventArgs e)
 	{
 		var button = e.target.GetComponent<Button>();
-		Slider slider = e.target.GetComponent<Slider> ();
 		if (button != null) 
 		{
 			button.Select ();
-		} else if (slider != null) 
-		{
-			slider.Select ();
-			if (trackedController.padTouched) 
-			{
-				slider.value = Mathf.InverseLerp(-0.8f, 0.8f, SteamVR_Controller.Input((int)GetComponent<SteamVR_TrackedObject>().index).GetAxis(Valve.VR.EVRButtonId.k_EButton_DPad_Right).x);
-				print (SteamVR_Controller.Input((int)GetComponent<SteamVR_TrackedObject>().index).GetAxis(Valve.VR.EVRButtonId.k_EButton_DPad_Right).x);
-			}
 		}
 	}
 
@@ -55,11 +46,9 @@ public class VRUIInput : MonoBehaviour
 	{
 
 		var button = e.target.GetComponent<Button>();
-		Slider slider = e.target.GetComponent<Slider> ();
-		if (button != null || slider != null)
+		if (button != null)
 		{
 			EventSystem.current.SetSelectedGameObject(null);
-			Debug.Log("HandlePointerOut", e.target.gameObject);
 		}
 	}
 }
